@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+  Airborne design tokens.
+  OKLCH, hue anchored to brand teal (~195). Neutrals tinted toward teal.
+  Brand refs: Teal #04C0C1 · Aqua #00D8D7 · Deep Teal #009B9D · Grey #585855.
+*/
+:root {
+  --canvas: oklch(0.992 0.004 195);
+  --surface: oklch(0.974 0.006 195);
+  --veil: oklch(0.952 0.008 196);
+  --line: oklch(0.895 0.009 197);
+  --ink: oklch(0.205 0.012 210);
+  --muted: oklch(0.455 0.013 200);
+  --subtle: oklch(0.60 0.011 200);
+
+  --teal: oklch(0.732 0.13 194);
+  --aqua: oklch(0.815 0.13 193);
+  --deep-teal: oklch(0.62 0.108 196);
+  --deep-teal-2: oklch(0.315 0.062 200);
+  --deep-teal-ink: oklch(0.235 0.05 205);
+
+  --font-display: var(--font-fraunces), Georgia, serif;
+  --font-sans: var(--font-geist-sans), system-ui, sans-serif;
+
+  --nav-h: 4.75rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  /* Smooth scrolling is driven by GSAP ScrollSmoother (lib/gsap). Native
+     smooth-scroll stays off so the two don't fight; reduced-motion falls back
+     to the browser's instant scroll. */
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--canvas);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+/* Anchor offset so sticky header never covers section tops */
+section[id],
+div[id].anchor {
+  scroll-margin-top: calc(var(--nav-h) + 0.5rem);
+}
+
+::selection {
+  background: color-mix(in oklch, var(--teal) 26%, transparent);
+  color: var(--ink);
+}
+
+/* Focus ring, consistent + visible */
+:where(a, button, [tabindex]):focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* Custom cursor active → hide the native one (desktop, non-reduced only; the
+   class is toggled by components/ui/Cursor). */
+.cursor-none,
+.cursor-none * {
+  cursor: none !important;
+}
+
+/* Utility: fine hairline top/bottom rules used as editorial dividers */
+.hairline {
+  border-color: var(--line);
+}
+
+/* Display headline kerning helper */
+.headline {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  font-weight: 400;
+}
+
+/* Marquee track needs to fit duplicated content */
+.marquee-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+}
+.marquee-mask {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 8%,
+    #000 92%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 8%,
+    #000 92%,
+    transparent
+  );
+}

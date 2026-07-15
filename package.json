@@ -1,0 +1,34 @@
+{
+  "name": "airborne-aerial-fitness",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Airborne Aerial Fitness — Mumbai boutique fitness studio marketing site",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "qr": "node scripts/generate-qr.mjs"
+  },
+  "dependencies": {
+    "@icons-pack/react-simple-icons": "^13.11.1",
+    "framer-motion": "^12.42.2",
+    "geist": "^1.3.1",
+    "gsap": "^3.15.0",
+    "lenis": "^1.3.25",
+    "lucide-react": "^1.24.0",
+    "next": "^16.2.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.5",
+    "@types/react": "^19.0.7",
+    "@types/react-dom": "^19.0.3",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.5.1",
+    "qrcode": "^1.5.4",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.7.3"
+  }
+}
