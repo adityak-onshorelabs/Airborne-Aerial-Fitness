@@ -35,8 +35,8 @@ export const IMG = {
   appShotA: REMOTE.app1,
   appShotB: REMOTE.app2,
   appShotC: REMOTE.app3,
-  // Pre-rendered 3-phone device mockup (real frames, light bg).
-  appMockup: "/mockups/Shot-2.jpg",
+  // Pre-rendered 3-phone device mockup (real frames, transparent bg).
+  appMockup: "/mockups/Shot-2.png",
   finalCta: "/assets/final-cta.jpg",
   formats: {
     silkHoop: REMOTE.aerial,

@@ -3,7 +3,7 @@
 
 # heavy source mockups (only the one in use is force-added to git)
 /public/mockups/*
-!/public/mockups/Shot-2.jpg
+!/public/mockups/Shot-2.png
 
 # next.js
 /.next

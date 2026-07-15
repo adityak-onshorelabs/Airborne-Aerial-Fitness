@@ -70,7 +70,7 @@ export function AppDownload() {
 
             <div className="lg:col-span-5">
               <Reveal delay={0.12}>
-                <div className="animate-float mx-auto max-w-md overflow-hidden rounded-[1.5rem] bg-white shadow-[0_44px_90px_-40px_rgba(0,0,0,0.55)]">
+                <div className="animate-float mx-auto max-w-md">
                   <Image
                     src={IMG.appMockup}
                     alt="The Airborne app — home, class booking, and current offers on iPhone"
