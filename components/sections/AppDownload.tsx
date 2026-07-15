@@ -6,38 +6,6 @@ import { Reveal } from "@/components/ui/Reveal";
 import { appDownload, IMG } from "@/lib/content";
 import { siteConfig } from "@/lib/site-config";
 
-function Phone({
-  src,
-  alt,
-  className = "",
-  floatClass = "",
-}: {
-  src: string;
-  alt: string;
-  className?: string;
-  floatClass?: string;
-}) {
-  return (
-    <div
-      className={`relative aspect-[9/19] w-full overflow-hidden rounded-[1.25rem] border border-white/15 bg-[#04100f] p-1.5 shadow-[0_40px_80px_-40px_rgba(0,0,0,0.6)] ${floatClass} ${className}`}
-    >
-      <div className="relative h-full w-full overflow-hidden rounded-[0.95rem]">
-        <Image
-          src={src}
-          alt={alt}
-          fill
-          sizes="(max-width: 1024px) 40vw, 220px"
-          className="object-cover"
-        />
-      </div>
-      <div
-        aria-hidden
-        className="absolute left-1/2 top-2.5 h-1 w-14 -translate-x-1/2 rounded-full bg-white/25"
-      />
-    </div>
-  );
-}
-
 export function AppDownload() {
   return (
     <section id="app" className="bg-canvas py-section">
@@ -102,24 +70,14 @@ export function AppDownload() {
 
             <div className="lg:col-span-5">
               <Reveal delay={0.12}>
-                <div className="relative mx-auto flex max-w-md items-center justify-center pt-4">
-                  <Phone
-                    src={IMG.appShotA}
-                    alt="Airborne app — browse studios and formats"
-                    className="w-[38%] translate-x-6 translate-y-6 -rotate-6"
-                    floatClass="animate-float"
-                  />
-                  <Phone
-                    src={IMG.appShotB}
-                    alt="Airborne app — book a session in a few taps"
-                    className="relative z-10 w-[42%]"
-                    floatClass="animate-float [animation-delay:0.8s]"
-                  />
-                  <Phone
-                    src={IMG.appShotC}
-                    alt="Airborne app — manage your membership and schedule"
-                    className="w-[38%] -translate-x-6 translate-y-6 rotate-6"
-                    floatClass="animate-float [animation-delay:1.6s]"
+                <div className="animate-float mx-auto max-w-md overflow-hidden rounded-[1.5rem] bg-white shadow-[0_44px_90px_-40px_rgba(0,0,0,0.55)]">
+                  <Image
+                    src={IMG.appMockup}
+                    alt="The Airborne app — home, class booking, and current offers on iPhone"
+                    width={1600}
+                    height={1200}
+                    sizes="(max-width: 1024px) 90vw, 40vw"
+                    className="h-auto w-full"
                   />
                 </div>
               </Reveal>

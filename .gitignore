@@ -1,6 +1,10 @@
 # dependencies
 /node_modules
 
+# heavy source mockups (only the one in use is force-added to git)
+/public/mockups/*
+!/public/mockups/Shot-2.jpg
+
 # next.js
 /.next
 /out
