@@ -64,7 +64,15 @@ export function Header() {
         <Link
           href="/"
           aria-label="Airborne Aerial Fitness home"
-          onClick={() => setOpen(false)}
+          onClick={() => {
+            setOpen(false);
+            // Already home: no route change to trigger ScrollReset, so glide up.
+            if (pathname === "/") {
+              const s = ScrollSmoother.get();
+              if (s) s.scrollTo(0, true);
+              else window.scrollTo({ top: 0, behavior: "smooth" });
+            }
+          }}
           className="shrink-0"
         >
           <Logo

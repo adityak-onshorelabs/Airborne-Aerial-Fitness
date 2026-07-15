@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Libre_Caslon_Display, Montserrat } from "next/font/google";
 import { siteConfig } from "@/lib/site-config";
 import { SiteHeader, SiteFooter } from "@/components/layout/SiteChrome";
+import { ScrollReset } from "@/components/layout/ScrollReset";
 import { SmoothScrollProvider } from "@/lib/gsap/SmoothScrollProvider";
 import "./globals.css";
 
@@ -145,6 +146,7 @@ export default function RootLayout({
             on bare landings like /download. */}
         <SiteHeader />
         <SmoothScrollProvider>
+          <ScrollReset />
           <main id="main">{children}</main>
           <SiteFooter />
         </SmoothScrollProvider>
