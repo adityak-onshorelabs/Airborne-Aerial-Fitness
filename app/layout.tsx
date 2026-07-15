@@ -1,9 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Libre_Caslon_Display, Montserrat } from "next/font/google";
 import { siteConfig } from "@/lib/site-config";
-import { Header } from "@/components/layout/Header";
-import { Footer } from "@/components/layout/Footer";
-import { Cursor } from "@/components/ui/Cursor";
+import { SiteHeader, SiteFooter } from "@/components/layout/SiteChrome";
 import { SmoothScrollProvider } from "@/lib/gsap/SmoothScrollProvider";
 import "./globals.css";
 
@@ -143,12 +141,12 @@ export default function RootLayout({
         </a>
         {/* Header + Cursor stay OUTSIDE the smooth wrapper: position:fixed breaks
             inside ScrollSmoother's transformed #smooth-content. Chrome lives in
-            the layout so it persists across route changes (multi-page site). */}
-        <Header />
-        <Cursor />
+            the layout so it persists across route changes; SiteChrome hides it
+            on bare landings like /download. */}
+        <SiteHeader />
         <SmoothScrollProvider>
           <main id="main">{children}</main>
-          <Footer />
+          <SiteFooter />
         </SmoothScrollProvider>
       </body>
     </html>

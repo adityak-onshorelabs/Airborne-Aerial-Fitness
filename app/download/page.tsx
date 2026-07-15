@@ -1,11 +1,8 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { Logo } from "@/components/ui/Logo";
 import { StoreButtons } from "@/components/ui/StoreButtons";
-import { QrCode } from "@/components/ui/QrCode";
+import { Cta } from "@/components/ui/primitives";
 import { Reveal } from "@/components/ui/Reveal";
-import { IconArrow } from "@/components/ui/icons";
-import { siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = {
   title: "Download the Airborne App",
@@ -39,20 +36,14 @@ export default function DownloadPage() {
           </p>
         </div>
 
-        <div className="mt-12 flex flex-col items-center gap-4 border-t border-white/12 pt-10">
-          <QrCode size={132} />
+        <div className="mt-12 flex w-full flex-col items-center gap-4 border-t border-white/12 pt-10">
           <p className="text-[0.82rem] text-white/55">
-            Or scan to open this page on your phone
+            Want to know more about Airborne first?
           </p>
+          <Cta href="/" variant="ghost-light">
+            Visit the website
+          </Cta>
         </div>
-
-        <Link
-          href="/"
-          className="group mt-12 inline-flex items-center gap-2 text-[0.8rem] uppercase tracking-[0.2em] text-white/55 transition-colors hover:text-white"
-        >
-          <IconArrow className="h-4 w-4 rotate-180 transition-transform duration-300 group-hover:-translate-x-0.5" />
-          Back to airborne.fit
-        </Link>
       </Reveal>
     </section>
   );

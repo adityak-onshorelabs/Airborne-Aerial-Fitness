@@ -7,7 +7,7 @@
 export const siteConfig = {
   name: "Airborne Aerial Fitness",
   shortName: "Airborne",
-  domain: "https://airborne.fit", // PLACEHOLDER — set production domain
+  domain: "https://airborne-aerial-fitness.vercel.app", // set production domain
   description:
     "Mumbai's premium boutique fitness studio for aerial fitness, movement, strength, and confidence. Aerial, Pilates, yoga, functional and kids programs across Lower Parel and Mazgaon.",
   tagline: "Discover Fitness Against Gravity",
@@ -25,7 +25,7 @@ export const siteConfig = {
     // Absolute URL the QR encodes → the same /download landing. Must be absolute
     // for a phone camera to open it. Kept a literal string so
     // scripts/generate-qr.mjs can read it; update the domain, then `npm run qr`.
-    qrUrl: "https://airborne.fit/download", // update domain when live
+    qrUrl: "https://airborne-aerial-fitness.vercel.app/download", // update domain when live
   },
 
   social: {

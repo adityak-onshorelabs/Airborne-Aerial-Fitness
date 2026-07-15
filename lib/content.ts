@@ -24,7 +24,7 @@ const REMOTE = {
 
 export const IMG = {
   hero: "/assets/hero-aerial.jpg",
-  brand: REMOTE.aerial,
+  brand: "/assets/brand-intro.jpg",
   aerialSignature: "/assets/aerial-signature.jpg",
   aerialDetail: "/assets/aerial-detail.jpg",
   adults: "/assets/adults.jpg",
