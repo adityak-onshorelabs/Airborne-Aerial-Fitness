@@ -14,13 +14,18 @@ export const siteConfig = {
 
   // App download — every transactional CTA routes to these.
   app: {
-    // PLACEHOLDER links. Replace with the real store listings.
-    appStoreUrl: "https://apps.apple.com/app/airborne-aerial-fitness", // PLACEHOLDER
+    // Live store listings.
+    appStoreUrl:
+      "https://apps.apple.com/in/app/airborne-aerial-fitness/id6761477217",
     playStoreUrl:
-      "https://play.google.com/store/apps/details?id=fit.airborne.app", // PLACEHOLDER
-    // Smart link the QR code encodes (a deep link / branch link resolving to the
-    // right store). Falls back to the site's download section.
-    downloadUrl: "https://airborne.fit/app", // PLACEHOLDER
+      "https://play.google.com/store/apps/details?id=com.airbornefitnessapp&pcampaignid=web_share",
+    // On-site landing that shows both store buttons. Every "Download" CTA points
+    // here (internal path), so users choose their platform.
+    downloadUrl: "/download",
+    // Absolute URL the QR encodes → the same /download landing. Must be absolute
+    // for a phone camera to open it. Kept a literal string so
+    // scripts/generate-qr.mjs can read it; update the domain, then `npm run qr`.
+    qrUrl: "https://airborne.fit/download", // update domain when live
   },
 
   social: {

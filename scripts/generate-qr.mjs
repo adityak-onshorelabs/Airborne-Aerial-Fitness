@@ -8,10 +8,10 @@ import QRCode from "qrcode";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = join(__dirname, "..");
 
-// Read the download URL straight from site-config without importing TS.
+// Read the QR target straight from site-config without importing TS.
 const cfg = readFileSync(join(root, "lib/site-config.ts"), "utf8");
-const match = cfg.match(/downloadUrl:\s*"([^"]+)"/);
-const url = match ? match[1] : "https://airborne.fit/app";
+const match = cfg.match(/qrUrl:\s*"([^"]+)"/);
+const url = match ? match[1] : "https://airborne.fit/download";
 
 const svg = await QRCode.toString(url, {
   type: "svg",
