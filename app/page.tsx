@@ -5,7 +5,6 @@ import { FormatsStrip } from "@/components/sections/FormatsStrip";
 import { ExploreGrid } from "@/components/sections/ExploreGrid";
 import { AppDownload } from "@/components/sections/AppDownload";
 import { Community } from "@/components/sections/Community";
-import { FinalCta } from "@/components/sections/FinalCta";
 
 // Home is the showcase + hub: it sells the brand, then hands off to the
 // dedicated interior pages (Aerial, Classes, Kids, Studios, Why, FAQ) via the
@@ -20,7 +19,6 @@ export default function Home() {
       <ExploreGrid />
       <Community />
       <AppDownload />
-      <FinalCta />
     </>
   );
 }

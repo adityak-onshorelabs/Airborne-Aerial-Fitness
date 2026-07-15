@@ -4,8 +4,8 @@ import {
   EditorialHero,
   EditorialSection,
   Plate,
-  PosterCta,
 } from "@/components/editorial/kit";
+import { FinalCta } from "@/components/sections/FinalCta";
 import { KeyLabel } from "@/components/ui/primitives";
 import { Reveal } from "@/components/ui/Reveal";
 import { facilityIcon, IconSparkle, IconArrowUpRight } from "@/components/ui/icons";
@@ -120,12 +120,7 @@ export default function StudiosPage() {
         </ul>
       </EditorialSection>
 
-      <PosterCta
-        kicker="Visit"
-        title="Book your first session."
-        cta="Download the App"
-        href={siteConfig.app.downloadUrl}
-      />
+      <FinalCta />
     </>
   );
 }

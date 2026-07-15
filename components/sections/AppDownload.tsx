@@ -19,9 +19,9 @@ function Phone({
 }) {
   return (
     <div
-      className={`relative aspect-[9/19] w-full overflow-hidden rounded-[2rem] border border-white/15 bg-[#04100f] p-1.5 shadow-[0_40px_80px_-40px_rgba(0,0,0,0.6)] ${floatClass} ${className}`}
+      className={`relative aspect-[9/19] w-full overflow-hidden rounded-[1.25rem] border border-white/15 bg-[#04100f] p-1.5 shadow-[0_40px_80px_-40px_rgba(0,0,0,0.6)] ${floatClass} ${className}`}
     >
-      <div className="relative h-full w-full overflow-hidden rounded-[1.6rem]">
+      <div className="relative h-full w-full overflow-hidden rounded-[0.95rem]">
         <Image
           src={src}
           alt={alt}

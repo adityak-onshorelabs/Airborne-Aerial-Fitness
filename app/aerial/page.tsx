@@ -3,8 +3,8 @@ import {
   EditorialHero,
   EditorialSection,
   Plate,
-  PosterCta,
 } from "@/components/editorial/kit";
+import { FinalCta } from "@/components/sections/FinalCta";
 import { KeyLabel } from "@/components/ui/primitives";
 import { Reveal } from "@/components/ui/Reveal";
 import { aerialPage, IMG } from "@/lib/content";
@@ -136,12 +136,7 @@ export default function AerialPage() {
         </ul>
       </EditorialSection>
 
-      <PosterCta
-        kicker="Begin"
-        title={aerialPage.cta}
-        cta="Download the App"
-        href={siteConfig.app.downloadUrl}
-      />
+      <FinalCta />
     </>
   );
 }

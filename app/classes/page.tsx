@@ -3,8 +3,8 @@ import {
   EditorialHero,
   EditorialSection,
   Plate,
-  PosterCta,
 } from "@/components/editorial/kit";
+import { FinalCta } from "@/components/sections/FinalCta";
 import { KeyLabel } from "@/components/ui/primitives";
 import { Reveal } from "@/components/ui/Reveal";
 import { formats, classesFlow, IMG } from "@/lib/content";
@@ -112,12 +112,7 @@ export default function ClassesPage() {
         </div>
       </EditorialSection>
 
-      <PosterCta
-        kicker="Explore"
-        title="Find your format in the app."
-        cta="Download the App"
-        href={siteConfig.app.downloadUrl}
-      />
+      <FinalCta />
     </>
   );
 }

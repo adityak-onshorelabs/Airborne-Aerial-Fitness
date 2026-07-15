@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import {
   EditorialHero,
   EditorialSection,
-  PosterCta,
 } from "@/components/editorial/kit";
+import { FinalCta } from "@/components/sections/FinalCta";
 import { FaqList } from "@/components/editorial/FaqList";
 import { IMG } from "@/lib/content";
 import { siteConfig } from "@/lib/site-config";
@@ -38,12 +38,7 @@ export default function FaqPage() {
         <FaqList />
       </EditorialSection>
 
-      <PosterCta
-        kicker="Still curious?"
-        title="The rest is in the app."
-        cta="Download the App"
-        href={siteConfig.app.downloadUrl}
-      />
+      <FinalCta />
     </>
   );
 }

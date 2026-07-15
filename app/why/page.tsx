@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import {
   EditorialHero,
   EditorialSection,
-  PosterCta,
 } from "@/components/editorial/kit";
+import { FinalCta } from "@/components/sections/FinalCta";
 import { KeyLabel } from "@/components/ui/primitives";
 import { Reveal } from "@/components/ui/Reveal";
 import { whyAirborne, whyPromise, IMG } from "@/lib/content";
@@ -87,12 +87,7 @@ export default function WhyPage() {
         </div>
       </EditorialSection>
 
-      <PosterCta
-        kicker="Experience it"
-        title="Feel the difference for yourself."
-        cta="Download the App"
-        href={siteConfig.app.downloadUrl}
-      />
+      <FinalCta />
     </>
   );
 }

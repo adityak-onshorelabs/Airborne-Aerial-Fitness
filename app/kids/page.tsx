@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import {
   EditorialHero,
   EditorialSection,
-  PosterCta,
 } from "@/components/editorial/kit";
+import { FinalCta } from "@/components/sections/FinalCta";
 import { KeyLabel } from "@/components/ui/primitives";
 import { Reveal } from "@/components/ui/Reveal";
 import { kidsPage, IMG } from "@/lib/content";
@@ -107,12 +107,7 @@ export default function KidsPage() {
         </ul>
       </EditorialSection>
 
-      <PosterCta
-        kicker="Enrol"
-        title={kidsPage.cta}
-        cta="Download the App"
-        href={siteConfig.app.downloadUrl}
-      />
+      <FinalCta />
     </>
   );
 }
