@@ -1,8 +1,10 @@
 "use client";
 
+import { useRef } from "react";
 import Image from "next/image";
-import { motion, useReducedMotion } from "framer-motion";
-import { clipReveal, viewportOnce } from "@/lib/motion";
+import { useReducedMotion } from "framer-motion";
+import { gsap } from "@/lib/gsap/register";
+import { useIsomorphicLayoutEffect } from "@/hooks/useIsomorphicLayoutEffect";
 
 /**
  * The default image treatment for the site. Two layered motions that don't
@@ -43,6 +45,32 @@ export function MediaReveal({
   zoom?: boolean;
 }) {
   const reduce = useReducedMotion();
+  const revealRef = useRef<HTMLDivElement>(null);
+
+  // GSAP-driven clip-wipe. Framer's whileInView (IntersectionObserver) is
+  // unreliable under ScrollSmoother's normalized scroll and can leave the media
+  // stuck fully clipped (invisible). ScrollTrigger shares the smoother's scroll
+  // system, so it fires dependably. We only *hide* it once JS is running, so if
+  // anything fails the image stays visible rather than blank.
+  useIsomorphicLayoutEffect(() => {
+    const el = revealRef.current;
+    if (!el || reduce) return;
+    const mm = gsap.matchMedia();
+    mm.add("(prefers-reduced-motion: no-preference)", () => {
+      gsap.fromTo(
+        el,
+        { clipPath: "inset(0 0 100% 0)", scale: 1.08 },
+        {
+          clipPath: "inset(0 0 0% 0)",
+          scale: 1,
+          duration: 1.1,
+          ease: "expo.out",
+          scrollTrigger: { trigger: el, start: "top 88%", once: true },
+        }
+      );
+    });
+    return () => mm.revert();
+  }, [reduce]);
 
   const overlayClass = {
     none: "",
@@ -74,18 +102,12 @@ export function MediaReveal({
       {reduce ? (
         <div className="absolute inset-0">{img}</div>
       ) : (
-        <motion.div
-          className="absolute inset-0"
-          variants={clipReveal}
-          initial="hidden"
-          whileInView="show"
-          viewport={viewportOnce}
-        >
+        <div ref={revealRef} className="absolute inset-0">
           {/* Oversized so ScrollSmoother drift never reveals the frame edge. */}
           <div data-speed={speed} className="absolute inset-x-0 -inset-y-[20%]">
             {img}
           </div>
-        </motion.div>
+        </div>
       )}
 
       {overlay !== "none" && (
