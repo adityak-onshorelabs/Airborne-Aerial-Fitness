@@ -15,8 +15,8 @@ export function AppDownload() {
             aria-hidden
             className="pointer-events-none absolute -left-32 bottom-0 h-[30rem] w-[30rem] rounded-full bg-[radial-gradient(circle,rgba(4,192,193,0.18),transparent_66%)] blur-2xl"
           />
-          <div className="relative grid items-center gap-12 lg:grid-cols-12 lg:gap-8">
-            <div className="lg:col-span-7">
+          <div className="relative grid items-center gap-12 lg:grid-cols-12 lg:gap-6">
+            <div className="lg:col-span-6">
               <Reveal>
                 <Eyebrow tone="light">{appDownload.eyebrow}</Eyebrow>
                 <h2 className="headline mt-6 text-display-md">
@@ -68,15 +68,15 @@ export function AppDownload() {
               </Reveal>
             </div>
 
-            <div className="lg:col-span-5">
+            <div className="lg:col-span-6">
               <Reveal delay={0.12}>
-                <div className="animate-float mx-auto max-w-md">
+                <div className="animate-float mx-auto w-full max-w-xl lg:max-w-none lg:scale-110">
                   <Image
                     src={IMG.appMockup}
                     alt="The Airborne app — home, class booking, and current offers on iPhone"
                     width={1600}
                     height={1200}
-                    sizes="(max-width: 1024px) 90vw, 40vw"
+                    sizes="(max-width: 1024px) 90vw, 50vw"
                     className="h-auto w-full"
                   />
                 </div>
