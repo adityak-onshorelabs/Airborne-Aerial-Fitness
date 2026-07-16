@@ -22,7 +22,7 @@ export function QrCode({
         style={{ width: size, height: size }}
       >
         <Image
-          src="https://ik.imagekit.io/adityakamarouthu/Onshorelabs/Airborne/assets/qr.svg"
+          src="https://ik.imagekit.io/adityakamarouthu/Onshorelabs/Airborne/assets/qr.svg?tr=orig-true"
           alt="QR code to download the Airborne app"
           width={size}
           height={size}
