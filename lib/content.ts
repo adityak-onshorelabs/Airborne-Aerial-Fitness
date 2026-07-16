@@ -27,7 +27,7 @@ const REMOTE = {
 } as const;
 
 export const IMG = {
-  hero: `${IK}/hero-aerial.jpg`,
+  hero: REMOTE.aerial,
   brand: REMOTE.aerial,
   aerialSignature: `${IK}/aerial-signature.jpg`,
   aerialDetail: `${IK}/aerial-detail.jpg`,
