@@ -32,7 +32,7 @@ npm install
 npm run dev        # http://localhost:3000
 npm run build      # production build
 npm run start      # serve the production build
-npm run qr         # regenerate public/assets/qr.svg from the download URL
+npm run qr         # regenerate qr.svg locally (then upload to ImageKit)
 ```
 
 ## Project structure
@@ -58,7 +58,7 @@ lib/
                     hosted-image REMOTE map
   motion.ts       shared animation variants
   gsap/           register + SmoothScrollProvider
-public/assets/  imagery, app-screen mockups, store badges, QR (qr.svg)
+public/         favicon + other static files (imagery/mockups/badges/QR live on ImageKit)
 scripts/        generate-qr.mjs
 ```
 
@@ -76,13 +76,13 @@ app: {
 
 1. Paste the real listing URLs into `appStoreUrl` / `playStoreUrl`.
 2. Set `downloadUrl` to the smart link (branch/deep link resolving to the right store).
-3. Run `npm run qr` to regenerate `public/assets/qr.svg` for the new URL.
+3. Run `npm run qr` to regenerate `qr.svg` for the new URL, then upload it to ImageKit (`assets/qr.svg`).
 
 > These are currently **placeholders** — the badges and QR render but point at placeholder targets until real URLs are set.
 
 ## Swapping content & imagery
 
-- **Imagery** → the `IMG` map in `lib/content.ts`. Real hosted shots live in the `REMOTE` map (ImageKit); the rest are local `/assets/*` placeholders awaiting final Airborne photography. Repoint any slot in one place. All images flow through `next/image` (remote hosts whitelisted in `next.config.mjs`).
+- **Imagery** → the `IMG` map in `lib/content.ts`. All shots are hosted on ImageKit (via the `REMOTE` map and the `IK` assets base); several remain placeholders awaiting final Airborne photography — repoint any slot in one place. All images flow through `next/image` (remote hosts whitelisted in `next.config.mjs`).
 - **Copy** → `lib/content.ts` (evergreen only; no pricing/schedules/availability).
 - **Testimonials** in `lib/content.ts` are marked `placeholder: true`. Replace with real, approved quotes before public launch.
 
