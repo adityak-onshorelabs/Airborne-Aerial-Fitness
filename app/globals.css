@@ -91,11 +91,14 @@ div[id].anchor {
   border-color: var(--line);
 }
 
-/* Display headline kerning helper */
+/* Display headline: uppercase serif set for a stark, airfit-style rhythm.
+   Per-size letter-spacing (from the display-* scale) is kept intentionally
+   tight — no override here so each size stays individually tuned. */
 .headline {
   font-family: var(--font-display);
   font-optical-sizing: auto;
   font-weight: 400;
+  text-transform: uppercase;
 }
 
 /* Marquee track needs to fit duplicated content */
