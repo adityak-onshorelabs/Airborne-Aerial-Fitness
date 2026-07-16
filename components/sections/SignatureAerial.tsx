@@ -62,9 +62,13 @@ export function SignatureAerial() {
     <section
       ref={panelRef}
       id="aerial"
-      className="relative flex flex-col justify-center overflow-hidden bg-[#08201f] py-16 text-white lg:h-screen lg:pb-0 lg:pt-[calc(var(--nav-h)_+_1.5rem)]"
+      className="relative overflow-hidden bg-[#08201f] text-white lg:h-screen"
     >
-      <Shell className="relative">
+      {/* On lg the section is a full-viewport pinned scene; centre the content
+          in the area BELOW the fixed nav (not the whole viewport) so the head
+          never tucks under the bar as it pins. */}
+      <div className="flex flex-col justify-center py-16 lg:mt-[var(--nav-h)] lg:h-[calc(100vh_-_var(--nav-h))] lg:py-0">
+        <Shell className="relative">
         <div className="grid gap-12 lg:grid-cols-12 lg:items-center lg:gap-16">
           <div className="lg:col-span-6">
             <Reveal>
@@ -103,7 +107,7 @@ export function SignatureAerial() {
           </div>
 
           <div className="lg:col-span-6">
-            <div className="grid h-[30rem] grid-cols-5 grid-rows-6 gap-4 lg:h-[42rem]">
+            <div className="grid h-[30rem] grid-cols-5 grid-rows-6 gap-4 lg:h-[min(42rem,calc(100vh_-_12rem))]">
               <div
                 ref={largeRef}
                 className="relative col-span-5 row-span-4 overflow-hidden rounded-media ring-1 ring-inset ring-white/10 will-change-transform"
@@ -149,8 +153,9 @@ export function SignatureAerial() {
               </div>
             </div>
           </div>
-        </div>
-      </Shell>
+          </div>
+        </Shell>
+      </div>
     </section>
   );
 }
