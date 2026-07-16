@@ -6,8 +6,10 @@
  * Image paths are centralized here so any asset can be swapped in one place.
  */
 
-// Real hosted assets (ImageKit). Remaining "/assets/*" paths are still
-// placeholders awaiting real photography — swap here as they arrive.
+// All imagery now served from ImageKit (assets folder mirrors the old
+// public/assets names 1:1). Base for the migrated placeholders:
+const IK = "https://ik.imagekit.io/adityakamarouthu/Onshorelabs/Airborne/assets";
+
 const REMOTE = {
   aerial:
     "https://ik.imagekit.io/adityakamarouthu/Onshorelabs/Airborne/imgi_2_aerial-fitness-BO_QLCAn.jpg?updatedAt=1784050504447",
@@ -20,40 +22,42 @@ const REMOTE = {
   app1: "https://ik.imagekit.io/adityakamarouthu/Onshorelabs/Airborne/IMG_3969.PNG",
   app2: "https://ik.imagekit.io/adityakamarouthu/Onshorelabs/Airborne/IMG_3970.PNG",
   app3: "https://ik.imagekit.io/adityakamarouthu/Onshorelabs/Airborne/IMG_3971.PNG",
+  appMockup:
+    "https://ik.imagekit.io/adityakamarouthu/Onshorelabs/Airborne/mockups/Shot-2.png",
 } as const;
 
 export const IMG = {
-  hero: "/assets/hero-aerial.jpg",
+  hero: `${IK}/hero-aerial.jpg`,
   brand: REMOTE.aerial,
-  aerialSignature: "/assets/aerial-signature.jpg",
-  aerialDetail: "/assets/aerial-detail.jpg",
-  adults: "/assets/adults.jpg",
-  kids: "/assets/kids.jpg",
-  facilities: "/assets/facilities.jpg",
-  studioLowerParel: "/assets/studio-lowerparel.jpg",
-  studioMazgaon: "/assets/studio-mazgaon.jpg",
+  aerialSignature: `${IK}/aerial-signature.jpg`,
+  aerialDetail: `${IK}/aerial-detail.jpg`,
+  adults: `${IK}/adults.jpg`,
+  kids: `${IK}/kids.jpg`,
+  facilities: `${IK}/facilities.jpg`,
+  studioLowerParel: `${IK}/studio-lowerparel.jpg`,
+  studioMazgaon: `${IK}/studio-mazgaon.jpg`,
   appShotA: REMOTE.app1,
   appShotB: REMOTE.app2,
   appShotC: REMOTE.app3,
   // Pre-rendered 3-phone device mockup (real frames, transparent bg).
-  appMockup: "/mockups/Shot-2.png",
-  finalCta: "/assets/final-cta.jpg",
+  appMockup: REMOTE.appMockup,
+  finalCta: `${IK}/final-cta.jpg`,
   formats: {
-    silkHoop: REMOTE.aerial,
+    silkHoop: `${IK}/format-silk-hoop.jpg`,
     pilates: REMOTE.pilates,
     functional: REMOTE.functional,
     dance: REMOTE.dance,
-    trampoline: "/assets/format-trampoline.jpg",
-    yoga: "/assets/format-yoga.jpg",
-    kidsAerial: "/assets/format-kids-aerial.jpg",
+    trampoline: `${IK}/format-trampoline.jpg`,
+    yoga: `${IK}/format-yoga.jpg`,
+    kidsAerial: `${IK}/format-kids-aerial.jpg`,
   },
   community: [
-    "/assets/community-1.jpg",
-    "/assets/community-2.jpg",
-    "/assets/community-3.jpg",
-    "/assets/community-4.jpg",
-    "/assets/community-5.jpg",
-    "/assets/community-6.jpg",
+    `${IK}/community-1.jpg`,
+    `${IK}/community-2.jpg`,
+    `${IK}/community-3.jpg`,
+    `${IK}/community-4.jpg`,
+    `${IK}/community-5.jpg`,
+    `${IK}/community-6.jpg`,
   ],
 } as const;
 

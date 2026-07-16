@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     images: [
       {
-        url: "/assets/og.jpg",
+        url: "https://ik.imagekit.io/adityakamarouthu/Onshorelabs/Airborne/assets/og.jpg",
         width: 1200,
         height: 630,
         alt: "Airborne Aerial Fitness — premium aerial and boutique fitness studio in Mumbai",
@@ -70,7 +70,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Airborne Aerial Fitness — Discover Fitness Against Gravity",
     description: siteConfig.description,
-    images: ["/assets/og.jpg"],
+    images: ["https://ik.imagekit.io/adityakamarouthu/Onshorelabs/Airborne/assets/og.jpg"],
   },
   icons: {
     icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
@@ -85,7 +85,7 @@ const jsonLd = {
   name: siteConfig.name,
   description: siteConfig.description,
   url: siteConfig.domain,
-  image: `${siteConfig.domain}/assets/og.jpg`,
+  image: "https://ik.imagekit.io/adityakamarouthu/Onshorelabs/Airborne/assets/og.jpg",
   telephone: siteConfig.contact.phone,
   email: siteConfig.contact.email,
   sameAs: [siteConfig.social.instagram],

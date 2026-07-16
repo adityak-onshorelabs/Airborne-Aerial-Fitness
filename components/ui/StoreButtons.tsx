@@ -1,14 +1,13 @@
 import Link from "next/link";
 import { siteConfig } from "@/lib/site-config";
 
-/* Official App Store + Google Play badge lockups (public/assets). Apple badge
+/* Official App Store + Google Play badge lockups (ImageKit). Apple badge
    flips black/white by surface tone; the Google badge is one colour lockup. */
 
-const APPLE_WHT =
-  "/assets/Download_on_the_App_Store_Badge_US-UK_RGB_wht_092917.svg";
-const APPLE_BLK =
-  "/assets/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg";
-const GOOGLE = "/assets/GetItOnGooglePlay_Badge_Web_color_English.svg";
+const IK = "https://ik.imagekit.io/adityakamarouthu/Onshorelabs/Airborne/assets";
+const APPLE_WHT = `${IK}/Download_on_the_App_Store_Badge_US-UK_RGB_wht_092917.svg`;
+const APPLE_BLK = `${IK}/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg`;
+const GOOGLE = `${IK}/GetItOnGooglePlay_Badge_Web_color_English.svg`;
 
 export function StoreButtons({
   large = false,
