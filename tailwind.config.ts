@@ -24,7 +24,7 @@ const config: Config = {
         "deep-teal-2": "var(--deep-teal-2)",
       },
       fontFamily: {
-        display: ["var(--font-display)", "Georgia", "serif"],
+        display: ["var(--font-display)", "system-ui", "sans-serif"],
         sans: ["var(--font-sans)", "system-ui", "sans-serif"],
       },
       fontSize: {

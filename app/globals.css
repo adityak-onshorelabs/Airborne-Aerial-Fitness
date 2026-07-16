@@ -22,7 +22,7 @@
   --deep-teal-2: oklch(0.315 0.062 200);
   --deep-teal-ink: oklch(0.235 0.05 205);
 
-  --font-display: var(--font-fraunces), Georgia, serif;
+  --font-display: var(--font-fraunces), system-ui, sans-serif;
   --font-sans: var(--font-geist-sans), system-ui, sans-serif;
 
   --nav-h: 4.75rem;
@@ -91,13 +91,13 @@ div[id].anchor {
   border-color: var(--line);
 }
 
-/* Display headline: uppercase serif set for a stark, airfit-style rhythm.
-   Per-size letter-spacing (from the display-* scale) is kept intentionally
-   tight — no override here so each size stays individually tuned. */
+/* Display headline: uppercase grotesque (Archivo) for a stark, athletic
+   airfit-style rhythm. Per-size letter-spacing (from the display-* scale) is
+   kept intentionally tight — no override here so each size stays tuned. */
 .headline {
   font-family: var(--font-display);
   font-optical-sizing: auto;
-  font-weight: 400;
+  font-weight: 700;
   text-transform: uppercase;
 }
 

@@ -43,7 +43,7 @@ export function Community() {
         <RevealGroup className="mt-16 grid gap-10 md:grid-cols-3">
           {community.testimonials.map((t, i) => (
             <RevealItem key={i} className="border-t border-line pt-7">
-              <p className="font-display text-xl italic leading-relaxed text-ink">
+              <p className="font-display text-xl leading-relaxed text-ink">
                 &ldquo;{t.quote}&rdquo;
               </p>
               <p className="mt-5 text-[0.85rem] uppercase tracking-[0.14em] text-subtle">

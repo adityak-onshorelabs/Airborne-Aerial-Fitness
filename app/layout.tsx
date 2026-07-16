@@ -1,16 +1,17 @@
 import type { Metadata, Viewport } from "next";
-import { Libre_Caslon_Display, Montserrat } from "next/font/google";
+import { Archivo, Montserrat } from "next/font/google";
 import { siteConfig } from "@/lib/site-config";
 import { SiteHeader, SiteFooter } from "@/components/layout/SiteChrome";
 import { ScrollReset } from "@/components/layout/ScrollReset";
 import { SmoothScrollProvider } from "@/lib/gsap/SmoothScrollProvider";
 import "./globals.css";
 
-// Headline / display typeface: elegant high-contrast Caslon. Feeds
-// --font-display via the existing --font-fraunces var wiring.
-const displaySerif = Libre_Caslon_Display({
+// Headline / display typeface: Archivo — a modern grotesque set uppercase for
+// a stark, athletic display voice. Feeds --font-display via the existing
+// --font-fraunces var wiring.
+const displaySerif = Archivo({
   subsets: ["latin"],
-  weight: ["400"],
+  weight: ["400", "500", "600", "700", "800"],
   variable: "--font-fraunces",
   display: "swap",
 });
