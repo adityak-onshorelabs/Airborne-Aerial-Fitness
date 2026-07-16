@@ -27,7 +27,7 @@ const REMOTE = {
 } as const;
 
 export const IMG = {
-  hero: REMOTE.aerial,
+  hero: `${IK}/maria-budanova-pristavskaya-4Pk6EQ7H4VI-unsplash.jpg`,
   brand: REMOTE.aerial,
   aerialSignature: `${IK}/aerial-signature.jpg`,
   aerialDetail: `${IK}/aerial-detail.jpg`,

@@ -63,7 +63,7 @@ export function Hero() {
       <div ref={mediaRef} className="absolute inset-0 will-change-transform">
         <ParallaxMedia
           src={IMG.hero}
-          alt="An Airborne athlete suspended mid-movement on aerial silks, poised and powerful"
+          alt="An Airborne athlete arched mid-movement in a misty teal-lit studio, poised and powerful"
           className="absolute inset-0"
           sizes="100vw"
           priority
