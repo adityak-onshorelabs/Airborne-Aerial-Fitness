@@ -41,14 +41,18 @@ export function SignatureAerial() {
           },
         });
 
-        tl.from(largeRef.current, { scale: 1.12 }, 0)
+        tl.from(
+          largeRef.current,
+          { clipPath: "inset(0 0 0 100%)", scale: 1.08, duration: 1.2 },
+          0
+        )
+          .from(detailRef.current, { xPercent: 20, opacity: 0 }, 0.18)
+          .from(statRef.current, { yPercent: 28, opacity: 0, duration: 0.9 }, 0.3)
           .from(
-            detailRef.current,
-            { yPercent: 24, opacity: 0, scale: 1.06 },
-            0.1
-          )
-          .from(statRef.current, { yPercent: 30, opacity: 0 }, 0.2)
-          .from(points, { yPercent: 26, opacity: 0, stagger: 0.1 }, 0.15);
+            points,
+            { yPercent: 24, opacity: 0, stagger: 0.09, duration: 0.8 },
+            0.22
+          );
       }
     );
     return () => mm.revert();
@@ -105,13 +109,16 @@ export function SignatureAerial() {
                 ref={largeRef}
                 className="relative col-span-5 row-span-4 overflow-hidden rounded-media ring-1 ring-inset ring-white/10 will-change-transform"
               >
-                <Image
-                  src={IMG.aerialSignature}
-                  alt="A powerful aerial silk pose held with control and grace inside the Airborne studio"
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover"
-                />
+                {/* lags scroll */}
+                <div data-speed={0.9} className="absolute inset-x-0 -inset-y-[14%]">
+                  <Image
+                    src={IMG.aerialSignature}
+                    alt="A powerful aerial silk pose held with control and grace inside the Airborne studio"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    className="object-cover"
+                  />
+                </div>
                 <div
                   aria-hidden
                   className="absolute inset-0 bg-[linear-gradient(160deg,rgba(0,155,157,0.10),rgba(4,26,26,0.5))]"
@@ -121,13 +128,16 @@ export function SignatureAerial() {
                 ref={detailRef}
                 className="relative col-span-3 row-span-2 overflow-hidden rounded-media ring-1 ring-inset ring-white/10 will-change-transform"
               >
-                <Image
-                  src={IMG.aerialDetail}
-                  alt="Close detail of an aerialist's grip and line, showing strength and precision"
-                  fill
-                  sizes="(max-width: 1024px) 60vw, 30vw"
-                  className="object-cover"
-                />
+                {/* leads scroll — counter-drift to the large plate */}
+                <div data-speed={1.1} className="absolute inset-x-0 -inset-y-[16%]">
+                  <Image
+                    src={IMG.aerialDetail}
+                    alt="Close detail of an aerialist's grip and line, showing strength and precision"
+                    fill
+                    sizes="(max-width: 1024px) 60vw, 30vw"
+                    className="object-cover"
+                  />
+                </div>
                 <div
                   aria-hidden
                   className="absolute inset-0 bg-[linear-gradient(160deg,rgba(0,155,157,0.10),rgba(4,26,26,0.5))]"
