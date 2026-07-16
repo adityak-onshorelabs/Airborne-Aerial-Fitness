@@ -34,12 +34,9 @@ export function BrandIntro() {
           </div>
         </div>
 
-        <RevealGroup className="mt-16 grid grid-cols-1 gap-px overflow-hidden rounded-media border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
+        <RevealGroup className="mt-20 grid grid-cols-1 gap-x-10 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
           {brandIntro.pillars.map((p) => (
-            <RevealItem
-              key={p.k}
-              className="bg-canvas p-7 transition-colors duration-300 hover:bg-surface"
-            >
+            <RevealItem key={p.k} className="border-t border-line pt-6">
               <h3 className="font-display text-xl text-ink">{p.k}</h3>
               <p className="mt-2.5 text-[0.95rem] leading-relaxed text-muted">
                 {p.v}

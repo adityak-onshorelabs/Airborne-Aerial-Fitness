@@ -34,10 +34,10 @@ export function MediaFrame({
 }) {
   const overlayClass = {
     none: "",
-    soft: "bg-[linear-gradient(180deg,rgba(255,255,255,0.06),rgba(6,20,20,0.14))]",
+    soft: "bg-[linear-gradient(180deg,rgba(255,255,255,0.03),rgba(6,20,20,0.09))]",
     cinematic:
-      "bg-[linear-gradient(180deg,rgba(4,18,18,0.15)_0%,rgba(4,18,18,0.05)_45%,rgba(4,18,18,0.55)_100%)]",
-    teal: "bg-[linear-gradient(160deg,rgba(0,155,157,0.05),rgba(4,32,31,0.42))]",
+      "bg-[linear-gradient(180deg,rgba(4,18,18,0.10)_0%,rgba(4,18,18,0.04)_45%,rgba(4,18,18,0.48)_100%)]",
+    teal: "bg-[linear-gradient(160deg,rgba(0,155,157,0.04),rgba(4,32,31,0.30))]",
   }[overlay];
 
   return (

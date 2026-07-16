@@ -18,7 +18,7 @@ export function QrCode({
   return (
     <div className={`flex items-center gap-4 ${className}`}>
       <div
-        className="shrink-0 rounded-2xl bg-white p-2.5 ring-1 ring-black/10"
+        className="shrink-0 rounded-media bg-white p-2.5 ring-1 ring-black/10"
         style={{ width: size, height: size }}
       >
         <Image

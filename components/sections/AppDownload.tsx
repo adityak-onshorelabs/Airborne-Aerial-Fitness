@@ -10,7 +10,7 @@ export function AppDownload() {
   return (
     <section id="app" className="bg-canvas py-section">
       <Shell>
-        <div className="relative overflow-hidden rounded-[2rem] bg-[#08201f] px-6 py-14 text-white sm:px-12 sm:py-16 lg:px-16">
+        <div className="relative overflow-hidden rounded-media bg-[#08201f] px-6 py-14 text-white sm:px-12 sm:py-16 lg:px-16">
           <div className="relative grid items-center gap-12 lg:grid-cols-12 lg:gap-6">
             <div className="lg:col-span-6">
               <Reveal>

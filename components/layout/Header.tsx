@@ -57,8 +57,8 @@ export function Header() {
       <div
         className={`pointer-events-auto mx-auto flex max-w-shell items-center justify-between gap-4 rounded-pill border pr-2.5 transition-all duration-500 ease-out-quint ${
           scrolled || open
-            ? "h-[3.25rem] pl-4 border-white/[0.14] bg-[rgba(6,20,19,0.82)] shadow-[0_16px_44px_-18px_rgba(0,0,0,0.6)] backdrop-blur-xl"
-            : "h-16 pl-5 border-white/[0.09] bg-[rgba(6,20,19,0.5)] shadow-[0_14px_44px_-22px_rgba(0,0,0,0.55)] backdrop-blur-lg"
+            ? "h-[3.25rem] pl-4 border-white/[0.12] bg-[rgba(6,20,19,0.78)] shadow-[0_8px_26px_-16px_rgba(0,0,0,0.4)] backdrop-blur-md"
+            : "h-16 pl-5 border-white/[0.07] bg-[rgba(6,20,19,0.42)] shadow-[0_6px_22px_-18px_rgba(0,0,0,0.32)] backdrop-blur-md"
         }`}
       >
         <Link
@@ -174,7 +174,7 @@ export function Header() {
           aria-hidden
         />
         <div
-          className={`absolute inset-x-3 top-[calc(1rem+4rem)] origin-top rounded-media bg-canvas px-5 pb-8 pt-6 shadow-[0_28px_70px_-30px_rgba(0,40,40,0.55)] transition-all duration-400 ease-out-quint ${
+          className={`absolute inset-x-3 top-[calc(1rem+4rem)] origin-top rounded-media bg-canvas px-5 pb-8 pt-6 shadow-[0_18px_48px_-28px_rgba(0,40,40,0.38)] transition-all duration-400 ease-out-quint ${
             open
               ? "translate-y-0 opacity-100"
               : "-translate-y-3 opacity-0"

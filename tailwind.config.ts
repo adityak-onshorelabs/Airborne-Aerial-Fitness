@@ -42,7 +42,7 @@ const config: Config = {
         section: "clamp(6rem, 12vw, 13rem)",
       },
       borderRadius: {
-        media: "1.25rem",
+        media: "0.5rem",
         pill: "999px",
       },
       transitionTimingFunction: {
