@@ -30,39 +30,25 @@ export function SignatureAerial() {
           ? Array.from(pointsRef.current.children)
           : [];
 
-        // Pin so the section stops at the nav's bottom edge, not the viewport
-        // top — the fixed bar never covers the content.
-        const navH =
-          parseFloat(
-            getComputedStyle(document.documentElement).getPropertyValue(
-              "--nav-h"
-            )
-          ) * 16 || 72;
-
+        // Play the media mosaic + proof points in on scroll-enter. No pin, so
+        // the section scrolls naturally and never sticks under the fixed nav.
         const tl = gsap.timeline({
+          defaults: { ease: "expo.out", duration: 1 },
           scrollTrigger: {
             trigger: panelRef.current,
-            start: `top ${navH}px`,
-            end: "+=90%",
-            pin: true,
-            pinSpacing: true,
-            scrub: 0.6,
-            anticipatePin: 1,
+            start: "top 72%",
+            once: true,
           },
         });
 
-        tl.from(largeRef.current, { scale: 1.14, ease: "none" }, 0)
+        tl.from(largeRef.current, { scale: 1.12 }, 0)
           .from(
             detailRef.current,
-            { yPercent: 34, opacity: 0, scale: 1.08, ease: "none" },
-            0.08
+            { yPercent: 24, opacity: 0, scale: 1.06 },
+            0.1
           )
-          .from(statRef.current, { yPercent: 46, opacity: 0, ease: "none" }, 0.16)
-          .from(
-            points,
-            { yPercent: 40, opacity: 0, stagger: 0.12, ease: "none" },
-            0.12
-          );
+          .from(statRef.current, { yPercent: 30, opacity: 0 }, 0.2)
+          .from(points, { yPercent: 26, opacity: 0, stagger: 0.1 }, 0.15);
       }
     );
     return () => mm.revert();
@@ -72,11 +58,9 @@ export function SignatureAerial() {
     <section
       ref={panelRef}
       id="aerial"
-      className="relative overflow-hidden bg-[#08201f] text-white lg:h-[calc(100vh_-_var(--nav-h))]"
+      className="relative overflow-hidden bg-[#08201f] py-20 text-white sm:py-24 lg:py-28"
     >
-      {/* The section is exactly the viewport minus the nav and is pinned at the
-          nav's bottom edge, so its content never sits under the fixed bar. */}
-      <div className="flex h-full flex-col justify-center py-16 lg:py-0">
+      <div>
         <Shell className="relative">
         <div className="grid gap-12 lg:grid-cols-12 lg:items-center lg:gap-16">
           <div className="lg:col-span-6">
@@ -116,7 +100,7 @@ export function SignatureAerial() {
           </div>
 
           <div className="lg:col-span-6">
-            <div className="grid h-[30rem] grid-cols-5 grid-rows-6 gap-4 lg:h-[min(42rem,calc(100vh_-_12rem))]">
+            <div className="grid h-[30rem] grid-cols-5 grid-rows-6 gap-4 lg:h-[42rem]">
               <div
                 ref={largeRef}
                 className="relative col-span-5 row-span-4 overflow-hidden rounded-media ring-1 ring-inset ring-white/10 will-change-transform"
