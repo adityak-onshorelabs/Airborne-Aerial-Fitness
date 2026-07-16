@@ -42,6 +42,7 @@ export const IMG = {
   // Pre-rendered 3-phone device mockup (real frames, transparent bg).
   appMockup: REMOTE.appMockup,
   finalCta: `${IK}/final-cta.jpg`,
+  strength: `${IK}/strength.jpg`,
   formats: {
     silkHoop: `${IK}/format-silk-hoop.jpg`,
     pilates: REMOTE.pilates,

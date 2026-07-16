@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import Image from "next/image";
+import { MediaReveal } from "@/components/ui/MediaReveal";
 import { Reveal } from "@/components/ui/Reveal";
 import { Cta } from "@/components/ui/primitives";
 
@@ -158,6 +159,8 @@ export function EditorialSection({
   lede,
   children,
   tone = "canvas",
+  image,
+  imageAlt,
 }: {
   index: string;
   label: string;
@@ -165,10 +168,24 @@ export function EditorialSection({
   lede?: string;
   children: ReactNode;
   tone?: "canvas" | "surface";
+  /** Optional full-width banner image set above the section content. */
+  image?: string;
+  imageAlt?: string;
 }) {
   return (
     <section className={`bg-${tone}`}>
       <div className="mx-auto w-full max-w-shell px-5 sm:px-8 lg:px-12">
+        {image && (
+          <div className="pt-16 sm:pt-20 lg:pt-24">
+            <MediaReveal
+              src={image}
+              alt={imageAlt ?? ""}
+              className="aspect-[16/9] lg:aspect-[21/9]"
+              sizes="(max-width: 1024px) 100vw, 82rem"
+              overlay="soft"
+            />
+          </div>
+        )}
         <div className={`grid gap-y-10 border-t ${HAIR} py-16 sm:py-20 lg:grid-cols-12 lg:gap-16 lg:py-24`}>
           <div className="lg:col-span-3">
             <div className="lg:sticky lg:top-28">
