@@ -11,10 +11,6 @@ export function AppDownload() {
     <section id="app" className="bg-canvas py-section">
       <Shell>
         <div className="relative overflow-hidden rounded-[2rem] bg-[#08201f] px-6 py-14 text-white sm:px-12 sm:py-16 lg:px-16">
-          <div
-            aria-hidden
-            className="pointer-events-none absolute -left-32 bottom-0 h-[30rem] w-[30rem] rounded-full bg-[radial-gradient(circle,rgba(4,192,193,0.18),transparent_66%)] blur-2xl"
-          />
           <div className="relative grid items-center gap-12 lg:grid-cols-12 lg:gap-6">
             <div className="lg:col-span-6">
               <Reveal>
@@ -70,7 +66,7 @@ export function AppDownload() {
 
             <div className="lg:col-span-6">
               <Reveal delay={0.12}>
-                <div className="animate-float mx-auto w-full max-w-xl lg:max-w-none lg:scale-110">
+                <div className="mx-auto w-full max-w-xl lg:max-w-none lg:scale-110">
                   <Image
                     src={IMG.appMockup}
                     alt="The Airborne app — home, class booking, and current offers on iPhone"

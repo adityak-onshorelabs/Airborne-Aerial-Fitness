@@ -39,7 +39,7 @@ const config: Config = {
         shell: "82rem",
       },
       spacing: {
-        section: "clamp(5rem, 11vw, 11rem)",
+        section: "clamp(6rem, 12vw, 13rem)",
       },
       borderRadius: {
         media: "1.25rem",

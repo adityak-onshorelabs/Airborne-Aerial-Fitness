@@ -44,10 +44,6 @@ export function PageHero({
           />
         </>
       )}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -right-40 -top-24 h-[36rem] w-[36rem] rounded-full bg-[radial-gradient(circle,rgba(0,216,215,0.16),transparent_66%)] blur-2xl"
-      />
       <Shell className="relative">
         <Reveal>
           <nav

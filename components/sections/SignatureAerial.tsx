@@ -64,11 +64,6 @@ export function SignatureAerial() {
       id="aerial"
       className="relative flex flex-col justify-center overflow-hidden bg-[#08201f] py-16 text-white lg:h-screen lg:py-0"
     >
-      {/* soft luminous field, top-right */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -right-40 -top-40 h-[36rem] w-[36rem] rounded-full bg-[radial-gradient(circle,rgba(0,216,215,0.16),transparent_66%)] blur-2xl"
-      />
       <Shell className="relative">
         <div className="grid gap-12 lg:grid-cols-12 lg:items-center lg:gap-16">
           <div className="lg:col-span-6">
