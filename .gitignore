@@ -1,12 +1,9 @@
 # dependencies
 /node_modules
 
-# heavy source mockups (only the one in use is force-added to git)
-/public/mockups/*
-!/public/mockups/Shot-2.png
-
-# imagery migrated to ImageKit; qr.svg regenerated locally by `npm run qr`
+# imagery/mockups migrated to ImageKit; qr.svg regenerated locally by `npm run qr`
 /public/assets
+/public/mockups
 
 # next.js
 /.next
