@@ -30,12 +30,22 @@ export function SignatureAerial() {
           ? Array.from(pointsRef.current.children)
           : [];
 
+        // Pin so the section stops at the nav's bottom edge, not the viewport
+        // top — the fixed bar never covers the content.
+        const navH =
+          parseFloat(
+            getComputedStyle(document.documentElement).getPropertyValue(
+              "--nav-h"
+            )
+          ) * 16 || 72;
+
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: panelRef.current,
-            start: "top top",
+            start: `top ${navH}px`,
             end: "+=90%",
             pin: true,
+            pinSpacing: true,
             scrub: 0.6,
             anticipatePin: 1,
           },
@@ -62,12 +72,11 @@ export function SignatureAerial() {
     <section
       ref={panelRef}
       id="aerial"
-      className="relative overflow-hidden bg-[#08201f] text-white lg:h-screen"
+      className="relative overflow-hidden bg-[#08201f] text-white lg:h-[calc(100vh_-_var(--nav-h))]"
     >
-      {/* On lg the section is a full-viewport pinned scene; centre the content
-          in the area BELOW the fixed nav (not the whole viewport) so the head
-          never tucks under the bar as it pins. */}
-      <div className="flex flex-col justify-center py-16 lg:mt-[var(--nav-h)] lg:h-[calc(100vh_-_var(--nav-h))] lg:py-0">
+      {/* The section is exactly the viewport minus the nav and is pinned at the
+          nav's bottom edge, so its content never sits under the fixed bar. */}
+      <div className="flex h-full flex-col justify-center py-16 lg:py-0">
         <Shell className="relative">
         <div className="grid gap-12 lg:grid-cols-12 lg:items-center lg:gap-16">
           <div className="lg:col-span-6">
