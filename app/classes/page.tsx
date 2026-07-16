@@ -77,6 +77,12 @@ export default function ClassesPage() {
         title={classesFlow.title}
         lede={classesFlow.body}
         tone="surface"
+        images={IMG.sessionShots}
+        imagesAlt={[
+          "Gymnastic rings hanging in the Airborne studio",
+          "An athlete mid pull-up, building back and grip strength",
+          "An athlete holding a controlled position on the rings",
+        ]}
       >
         <div className="grid gap-px border border-ink/12 bg-ink/12 sm:grid-cols-3">
           {classesFlow.steps.map((s) => (

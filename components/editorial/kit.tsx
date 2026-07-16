@@ -162,6 +162,8 @@ export function EditorialSection({
   image,
   imageAlt,
   imageClassName,
+  images,
+  imagesAlt,
 }: {
   index: string;
   label: string;
@@ -174,11 +176,47 @@ export function EditorialSection({
   imageAlt?: string;
   /** Extra <img> classes for the banner, e.g. object-position focal control. */
   imageClassName?: string;
+  /** Optional row of vertical images (a triptych) under the head. */
+  images?: readonly string[];
+  imagesAlt?: readonly string[];
 }) {
+  const head = (
+    <Reveal>
+      <IndexKicker index={index}>{label}</IndexKicker>
+      {title && (
+        <h2 className="headline mt-6 max-w-[22ch] text-display-md text-ink">
+          {title}
+        </h2>
+      )}
+      {lede && (
+        <p className="mt-5 max-w-prose leading-relaxed text-muted">{lede}</p>
+      )}
+    </Reveal>
+  );
+
   return (
     <section className={`bg-${tone}`}>
       <div className="mx-auto w-full max-w-shell px-5 sm:px-8 lg:px-12">
-        {image ? (
+        {images && images.length > 0 ? (
+          // Triptych variant: heading, a row of vertical images, then content.
+          <div className={`border-t ${HAIR} py-16 sm:py-20 lg:py-24`}>
+            {head}
+            <div className="mt-10 grid grid-cols-3 gap-3 sm:gap-5 lg:mt-12">
+              {images.map((src, i) => (
+                <MediaReveal
+                  key={src}
+                  src={src}
+                  alt={imagesAlt?.[i] ?? ""}
+                  className="aspect-[3/4]"
+                  sizes="(max-width: 1024px) 33vw, 26rem"
+                  overlay="soft"
+                  speed={i % 2 === 0 ? 0.86 : 0.98}
+                />
+              ))}
+            </div>
+            <div className="mt-12 lg:mt-16">{children}</div>
+          </div>
+        ) : image ? (
           // Image variant: heading on top, the banner beneath it, then the
           // content — the image reads as part of the section, not a lid on it.
           <div className={`border-t ${HAIR} py-16 sm:py-20 lg:py-24`}>

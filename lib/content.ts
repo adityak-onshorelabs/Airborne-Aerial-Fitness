@@ -43,6 +43,12 @@ export const IMG = {
   appMockup: REMOTE.appMockup,
   finalCta: `${IK}/final-cta.jpg`,
   strength: `${IK}/strength.jpg`,
+  // Vertical triptych for the "How it works" session flow.
+  sessionShots: [
+    `${IK}/vertical-1.jpg`,
+    `${IK}/vertical-2.jpg`,
+    `${IK}/vertical-4.jpg`,
+  ],
   formats: {
     silkHoop: `${IK}/format-silk-hoop.jpg`,
     pilates: REMOTE.pilates,
