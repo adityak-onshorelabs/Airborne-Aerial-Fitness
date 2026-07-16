@@ -25,7 +25,7 @@
   --font-display: var(--font-fraunces), system-ui, sans-serif;
   --font-sans: var(--font-geist-sans), system-ui, sans-serif;
 
-  --nav-h: 4.75rem;
+  --nav-h: 4.5rem;
 }
 
 * {

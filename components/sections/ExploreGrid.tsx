@@ -71,7 +71,7 @@ export function ExploreGrid() {
                   sizes="(max-width: 768px) 100vw, 55vw"
                   overlay="cinematic"
                 />
-                <span className="absolute right-5 top-5 flex h-11 w-11 items-center justify-center rounded-full border border-white/25 bg-black/20 text-white backdrop-blur-sm transition-all duration-300 ease-out-quint group-hover:border-teal group-hover:bg-teal group-hover:text-[#04201f]">
+                <span className="absolute right-5 top-5 flex h-11 w-11 items-center justify-center border border-white/25 bg-black/20 text-white backdrop-blur-sm transition-all duration-300 ease-out-quint group-hover:border-teal group-hover:bg-teal group-hover:text-[#04201f]">
                   <IconArrowUpRight className="h-4 w-4 transition-transform duration-300 ease-out-quint group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </span>
                 <div className="absolute inset-x-0 bottom-0 p-6 sm:p-7">

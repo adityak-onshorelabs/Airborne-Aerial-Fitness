@@ -42,8 +42,9 @@ const config: Config = {
         section: "clamp(6rem, 12vw, 13rem)",
       },
       borderRadius: {
-        media: "0.5rem",
-        pill: "999px",
+        // Squared throughout for a stark, minimal (airfit-style) surface.
+        media: "0",
+        pill: "0",
       },
       transitionTimingFunction: {
         "out-quint": "cubic-bezier(0.22, 1, 0.36, 1)",
