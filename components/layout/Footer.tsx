@@ -17,7 +17,7 @@ export function Footer() {
       <Shell>
         <Reveal className="grid gap-12 pb-14 md:grid-cols-12">
           <div className="md:col-span-5">
-            <Logo tone="light" className="h-9" />
+            <Logo tone="light" className="h-16 sm:h-20" />
             <p className="mt-5 max-w-xs text-[0.95rem] leading-relaxed text-muted">
               {footer.brandLine}
             </p>

@@ -63,7 +63,11 @@ export function Header() {
     };
   }, [open]);
 
-  const solid = scrolled || open;
+  // Home opens on a dark hero → the bar is transparent (white type) until
+  // scroll. Interior pages open on a light canvas hero, so the bar must be
+  // solid (ink type) from the top or the white wordmark/links vanish.
+  const isHome = pathname === "/";
+  const solid = scrolled || open || !isHome;
 
   return (
     <header className="pointer-events-none fixed inset-x-0 top-0 z-50">
