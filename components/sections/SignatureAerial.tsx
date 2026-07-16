@@ -62,7 +62,7 @@ export function SignatureAerial() {
     <section
       ref={panelRef}
       id="aerial"
-      className="relative flex flex-col justify-center overflow-hidden bg-[#08201f] py-16 text-white lg:h-screen lg:py-0"
+      className="relative flex flex-col justify-center overflow-hidden bg-[#08201f] py-16 text-white lg:h-screen lg:pb-0 lg:pt-[calc(var(--nav-h)+1.5rem)]"
     >
       <Shell className="relative">
         <div className="grid gap-12 lg:grid-cols-12 lg:items-center lg:gap-16">
