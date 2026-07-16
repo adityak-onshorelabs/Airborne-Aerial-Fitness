@@ -26,6 +26,7 @@ export function QrCode({
           alt="QR code to download the Airborne app"
           width={size}
           height={size}
+          unoptimized
           className="h-full w-full"
         />
       </div>
