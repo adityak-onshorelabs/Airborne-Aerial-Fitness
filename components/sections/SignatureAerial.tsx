@@ -109,10 +109,10 @@ export function SignatureAerial() {
           </div>
 
           <div className="lg:col-span-6">
-            <div className="grid h-[30rem] grid-cols-5 grid-rows-6 gap-4 lg:h-[42rem]">
+            <div className="grid gap-3 sm:h-[30rem] sm:grid-cols-5 sm:grid-rows-6 sm:gap-4 lg:h-[42rem]">
               <div
                 ref={largeRef}
-                className="relative col-span-5 row-span-4 overflow-hidden rounded-media ring-1 ring-inset ring-white/10 will-change-transform"
+                className="relative aspect-[16/11] overflow-hidden rounded-media ring-1 ring-inset ring-white/10 will-change-transform sm:aspect-auto sm:col-span-5 sm:row-span-4"
               >
                 {/* lags scroll */}
                 <div data-speed={0.9} className="absolute inset-x-0 -inset-y-[14%]">
@@ -131,7 +131,7 @@ export function SignatureAerial() {
               </div>
               <div
                 ref={detailRef}
-                className="relative col-span-3 row-span-2 overflow-hidden rounded-media ring-1 ring-inset ring-white/10 will-change-transform"
+                className="relative aspect-[16/11] overflow-hidden rounded-media ring-1 ring-inset ring-white/10 will-change-transform sm:aspect-auto sm:col-span-3 sm:row-span-2"
               >
                 {/* leads scroll — counter-drift to the large plate */}
                 <div data-speed={1.1} className="absolute inset-x-0 -inset-y-[16%]">
@@ -150,7 +150,7 @@ export function SignatureAerial() {
               </div>
               <div
                 ref={statRef}
-                className="col-span-2 row-span-2 flex flex-col justify-end rounded-media border border-white/12 bg-white/[0.04] p-5 will-change-transform"
+                className="flex flex-col justify-end rounded-media border border-white/12 bg-white/[0.04] p-6 will-change-transform sm:col-span-2 sm:row-span-2 sm:p-5"
               >
                 <p className="font-display text-3xl leading-none text-white">
                   From zero.

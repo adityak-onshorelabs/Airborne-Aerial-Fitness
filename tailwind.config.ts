@@ -39,7 +39,7 @@ const config: Config = {
         shell: "82rem",
       },
       spacing: {
-        section: "clamp(6rem, 12vw, 13rem)",
+        section: "clamp(4rem, 10vw, 13rem)",
       },
       borderRadius: {
         // Squared throughout for a stark, minimal (airfit-style) surface.

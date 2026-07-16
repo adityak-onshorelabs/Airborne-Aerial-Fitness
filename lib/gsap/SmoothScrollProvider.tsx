@@ -27,7 +27,13 @@ export function SmoothScrollProvider({ children }: { children: ReactNode }) {
 
   useIsomorphicLayoutEffect(() => {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduce) return;
+    // Skip the smoother on mobile/coarse-pointer devices: no inertial hijack,
+    // no normalizeScroll, no data-speed parallax — just native scroll. Scroll
+    // reveals still fire (ScrollTrigger works on native scroll).
+    const isMobile = window.matchMedia(
+      "(max-width: 1023px), (pointer: coarse)"
+    ).matches;
+    if (reduce || isMobile) return;
 
     const ctx = gsap.context(() => {
       const instance = ScrollSmoother.create({
