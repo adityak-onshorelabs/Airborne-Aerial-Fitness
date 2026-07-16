@@ -8,20 +8,18 @@ import { useRef } from "react";
  * it. On enter the fill grows in from the edge the pointer crossed; on leave it
  * retreats toward the edge the pointer left by.
  *
- * Implemented with animated `clip-path` (not a transform) on purpose: a
- * transformed layer clipped by a rounded `overflow:hidden` parent leaves a
- * ~0.5px seam of the base colour at the curved ends. clip-path animates the
- * element in place with no compositor layer, so there is no seam. `round 999px`
- * keeps the pill shape while clipping.
+ * Implemented with animated `clip-path` (not a transform) on purpose: it
+ * animates the element in place with no compositor layer, so there is no seam.
+ * Buttons are squared, so the clip carries no corner rounding.
  */
-const FULL = "inset(0 round 999px)";
+const FULL = "inset(0)";
 
 // Collapsed to the given edge, so the fill grows out FROM that edge.
 const EDGE = {
-  top: "inset(0 0 100% 0 round 999px)",
-  bottom: "inset(100% 0 0 0 round 999px)",
-  left: "inset(0 100% 0 0 round 999px)",
-  right: "inset(0 0 0 100% round 999px)",
+  top: "inset(0 0 100% 0)",
+  bottom: "inset(100% 0 0 0)",
+  left: "inset(0 100% 0 0)",
+  right: "inset(0 0 0 100%)",
 } as const;
 
 export const HIDDEN_CLIP = EDGE.bottom;
