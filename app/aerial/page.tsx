@@ -71,6 +71,7 @@ export default function AerialPage() {
         tone="surface"
         image={IMG.strength}
         imageAlt="An athlete holding a powerful straight-arm planche, showing full-body strength"
+        imageClassName="object-[center_72%]"
       >
         <dl className="grid gap-x-12 sm:grid-cols-2">
           {aerialPage.gains.items.map((g, i) => (

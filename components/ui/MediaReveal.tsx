@@ -24,6 +24,7 @@ export function MediaReveal({
   src,
   alt,
   className = "",
+  imgClassName = "",
   sizes = "100vw",
   priority = false,
   rounded = "rounded-media",
@@ -35,6 +36,8 @@ export function MediaReveal({
   alt: string;
   /** Frame sizing (aspect ratio / min-height). This element clips the drift. */
   className?: string;
+  /** Extra classes on the <img>, e.g. object-position for focal control. */
+  imgClassName?: string;
   sizes?: string;
   priority?: boolean;
   rounded?: string;
@@ -91,7 +94,7 @@ export function MediaReveal({
         zoom
           ? "transition-transform duration-[1200ms] ease-out-quint group-hover/media:scale-[1.05]"
           : ""
-      }`}
+      } ${imgClassName}`}
     />
   );
 

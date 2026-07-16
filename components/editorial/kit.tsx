@@ -161,6 +161,7 @@ export function EditorialSection({
   tone = "canvas",
   image,
   imageAlt,
+  imageClassName,
 }: {
   index: string;
   label: string;
@@ -168,44 +169,64 @@ export function EditorialSection({
   lede?: string;
   children: ReactNode;
   tone?: "canvas" | "surface";
-  /** Optional full-width banner image set above the section content. */
+  /** Optional full-width banner image, set inside the section under the head. */
   image?: string;
   imageAlt?: string;
+  /** Extra <img> classes for the banner, e.g. object-position focal control. */
+  imageClassName?: string;
 }) {
   return (
     <section className={`bg-${tone}`}>
       <div className="mx-auto w-full max-w-shell px-5 sm:px-8 lg:px-12">
-        {image && (
-          <div className="pt-16 sm:pt-20 lg:pt-24">
+        {image ? (
+          // Image variant: heading on top, the banner beneath it, then the
+          // content — the image reads as part of the section, not a lid on it.
+          <div className={`border-t ${HAIR} py-16 sm:py-20 lg:py-24`}>
+            <Reveal>
+              <IndexKicker index={index}>{label}</IndexKicker>
+              {title && (
+                <h2 className="headline mt-6 max-w-[22ch] text-display-md text-ink">
+                  {title}
+                </h2>
+              )}
+              {lede && (
+                <p className="mt-5 max-w-prose leading-relaxed text-muted">
+                  {lede}
+                </p>
+              )}
+            </Reveal>
             <MediaReveal
               src={image}
               alt={imageAlt ?? ""}
-              className="aspect-[16/9] lg:aspect-[21/9]"
+              className="mt-10 aspect-[16/9] lg:mt-12 lg:aspect-[21/9]"
+              imgClassName={imageClassName}
               sizes="(max-width: 1024px) 100vw, 82rem"
               overlay="soft"
             />
+            <div className="mt-12 lg:mt-16">{children}</div>
+          </div>
+        ) : (
+          <div className={`grid gap-y-10 border-t ${HAIR} py-16 sm:py-20 lg:grid-cols-12 lg:gap-16 lg:py-24`}>
+            <div className="lg:col-span-3">
+              <div className="lg:sticky lg:top-28">
+                <Reveal>
+                  <IndexKicker index={index}>{label}</IndexKicker>
+                  {title && (
+                    <h2 className="headline mt-6 text-display-md text-ink">
+                      {title}
+                    </h2>
+                  )}
+                  {lede && (
+                    <p className="mt-5 max-w-sm leading-relaxed text-muted">
+                      {lede}
+                    </p>
+                  )}
+                </Reveal>
+              </div>
+            </div>
+            <div className="lg:col-span-9">{children}</div>
           </div>
         )}
-        <div className={`grid gap-y-10 border-t ${HAIR} py-16 sm:py-20 lg:grid-cols-12 lg:gap-16 lg:py-24`}>
-          <div className="lg:col-span-3">
-            <div className="lg:sticky lg:top-28">
-              <Reveal>
-                <IndexKicker index={index}>{label}</IndexKicker>
-                {title && (
-                  <h2 className="headline mt-6 text-display-md text-ink">
-                    {title}
-                  </h2>
-                )}
-                {lede && (
-                  <p className="mt-5 max-w-sm leading-relaxed text-muted">
-                    {lede}
-                  </p>
-                )}
-              </Reveal>
-            </div>
-          </div>
-          <div className="lg:col-span-9">{children}</div>
-        </div>
       </div>
     </section>
   );
