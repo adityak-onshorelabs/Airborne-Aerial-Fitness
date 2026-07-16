@@ -43,7 +43,12 @@ export function SignatureAerial() {
 
         tl.from(
           largeRef.current,
-          { clipPath: "inset(0 0 0 100%)", scale: 1.08, duration: 1.2 },
+          {
+            clipPath: "inset(0 0 0 28%)",
+            scale: 1.03,
+            duration: 1.3,
+            ease: "power2.out",
+          },
           0
         )
           .from(detailRef.current, { xPercent: 20, opacity: 0 }, 0.18)
