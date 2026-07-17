@@ -84,11 +84,11 @@ export function MembershipPlans({
         </div>
       </Reveal>
 
-      <div className="mt-10 grid gap-y-10 lg:grid-cols-12 lg:gap-12">
+      <div className="mt-10 grid grid-cols-1 gap-y-10 lg:grid-cols-12 lg:gap-12">
         {/* Discipline plate + context */}
-        <div className="lg:col-span-4">
+        <div className="min-w-0 lg:col-span-4">
           <Reveal>
-            <div className="relative aspect-[4/5] overflow-hidden ring-1 ring-inset ring-ink/15">
+            <div className="relative aspect-[16/10] overflow-hidden ring-1 ring-inset ring-ink/15 sm:aspect-[3/2] lg:aspect-[4/5]">
               {images[active] && (
                 <Image
                   src={images[active]}
@@ -123,7 +123,7 @@ export function MembershipPlans({
         </div>
 
         {/* Tier cards */}
-        <div className="lg:col-span-8">
+        <div className="min-w-0 lg:col-span-8">
           <div className="grid gap-4 sm:grid-cols-2">
             {tiers.map((t) => {
               const isTrial = t.sessions <= 1;

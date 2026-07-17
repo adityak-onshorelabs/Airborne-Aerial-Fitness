@@ -111,8 +111,8 @@ export function EditorialHero({
           </div>
         </Reveal>
 
-        <div className="mt-10 grid gap-y-10 lg:grid-cols-12 lg:gap-16">
-          <div className={image ? "lg:col-span-8" : "lg:col-span-11"}>
+        <div className="mt-10 grid grid-cols-1 gap-y-10 lg:grid-cols-12 lg:gap-16">
+          <div className={`min-w-0 ${image ? "lg:col-span-8" : "lg:col-span-11"}`}>
             <Reveal>
               <h1 className="headline text-[clamp(3rem,9vw,8rem)] leading-[0.92] tracking-[-0.02em] text-ink">
                 {title}
@@ -244,8 +244,8 @@ export function EditorialSection({
             <div className="mt-12 lg:mt-16">{children}</div>
           </div>
         ) : (
-          <div className={`grid gap-y-10 border-t ${HAIR} py-16 sm:py-20 lg:grid-cols-12 lg:gap-16 lg:py-24`}>
-            <div className="lg:col-span-3">
+          <div className={`grid grid-cols-1 gap-y-10 border-t ${HAIR} py-16 sm:py-20 lg:grid-cols-12 lg:gap-16 lg:py-24`}>
+            <div className="min-w-0 lg:col-span-3">
               <div className="lg:sticky lg:top-28">
                 <Reveal>
                   <IndexKicker index={index}>{label}</IndexKicker>
@@ -262,7 +262,7 @@ export function EditorialSection({
                 </Reveal>
               </div>
             </div>
-            <div className="lg:col-span-9">{children}</div>
+            <div className="min-w-0 lg:col-span-9">{children}</div>
           </div>
         )}
       </div>

@@ -25,7 +25,10 @@ export function Hero() {
   // Scrub-linked, transform/opacity only. Gated off under reduced-motion.
   useIsomorphicLayoutEffect(() => {
     const mm = gsap.matchMedia();
-    mm.add("(prefers-reduced-motion: no-preference)", () => {
+    // Desktop only. On mobile/touch the smoother is off (native scroll), so a
+    // scroll-scrubbed full-screen image transform just adds friction/jank —
+    // skip it and let the hero sit static under native scroll.
+    mm.add("(min-width: 1024px) and (prefers-reduced-motion: no-preference)", () => {
       gsap
         .timeline({
           scrollTrigger: {

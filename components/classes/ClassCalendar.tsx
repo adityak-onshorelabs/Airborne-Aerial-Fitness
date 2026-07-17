@@ -119,9 +119,15 @@ export function ClassCalendar({ slots }: { slots: Slot[] }) {
       <div className="mt-6 grid grid-cols-1 gap-px overflow-hidden rounded-media border border-ink/12 bg-ink/12 md:grid-cols-7">
         {WEEK_ORDER.map((day) => {
           const daySlots = byDay.get(day) ?? [];
+          // Empty days keep the 7-col alignment on desktop but are hidden on
+          // mobile, where they'd otherwise stack into a wall of "No classes".
+          const empty = daySlots.length === 0;
           return (
-            <div key={day} className="flex min-h-[7rem] flex-col bg-canvas">
-              <div className="sticky top-0 flex items-baseline justify-between gap-2 border-b border-ink/10 bg-canvas/95 px-3 py-2.5 backdrop-blur">
+            <div
+              key={day}
+              className={`${empty ? "hidden md:flex" : "flex"} min-h-[7rem] flex-col bg-canvas`}
+            >
+              <div className="flex items-baseline justify-between gap-2 border-b border-ink/10 bg-canvas/95 px-3 py-2.5 backdrop-blur md:sticky md:top-0">
                 <span className="font-sans text-[0.72rem] font-semibold uppercase tracking-[0.14em] text-ink">
                   <span className="md:hidden">{DAY_LABELS[day]}</span>
                   <span className="hidden md:inline">{DAY_SHORT[day]}</span>
