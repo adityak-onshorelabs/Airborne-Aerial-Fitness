@@ -5,24 +5,10 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { navLinks, siteConfig } from "@/lib/site-config";
 import { StoreButtons } from "@/components/ui/StoreButtons";
+import { Logo } from "@/components/ui/Logo";
 import { IconArrow } from "@/components/ui/icons";
 import { gsap, ScrollTrigger, ScrollSmoother } from "@/lib/gsap/register";
 import { useDirectionalFill, HIDDEN_CLIP } from "@/hooks/useDirectionalFill";
-
-// Typographic wordmark. The raster lockup (figure + boxed wordmark + tagline)
-// reads as clutter at nav scale, so the bar uses clean set type instead; the
-// full lockup still lives in the footer where it has room to breathe.
-function Wordmark({ solid }: { solid: boolean }) {
-  return (
-    <span
-      className={`font-display text-lg font-extrabold uppercase leading-none tracking-[0.22em] transition-colors duration-300 sm:text-xl ${
-        solid ? "text-ink" : "text-white"
-      }`}
-    >
-      Airborne
-    </span>
-  );
-}
 
 export function Header() {
   const pathname = usePathname();
@@ -87,7 +73,7 @@ export function Header() {
             : "border-transparent bg-transparent"
         }`}
       >
-        <div className="mx-auto flex h-16 max-w-shell items-center justify-between gap-4 px-5 sm:h-[4.5rem] sm:px-8 lg:px-12">
+        <div className="mx-auto flex h-20 max-w-shell items-center justify-between gap-4 px-5 sm:h-24 sm:px-8 lg:px-12">
           <Link
             href="/"
             aria-label="Airborne Aerial Fitness home"
@@ -102,7 +88,7 @@ export function Header() {
             }}
             className="shrink-0"
           >
-            <Wordmark solid={solid} />
+            <Logo tone={solid ? "light" : "dark"} className="h-14 sm:h-16" />
           </Link>
 
           <nav aria-label="Primary" className="hidden items-center gap-8 lg:flex">
@@ -202,7 +188,7 @@ export function Header() {
           aria-hidden
         />
         <div
-          className={`absolute inset-x-0 top-16 origin-top border-b border-line bg-canvas px-5 pb-8 pt-6 shadow-[0_18px_48px_-28px_rgba(0,40,40,0.38)] transition-all duration-400 ease-out-quint sm:top-[4.5rem] ${
+          className={`absolute inset-x-0 top-20 origin-top border-b border-line bg-canvas px-5 pb-8 pt-6 shadow-[0_18px_48px_-28px_rgba(0,40,40,0.38)] transition-all duration-400 ease-out-quint sm:top-24 ${
             open
               ? "translate-y-0 opacity-100"
               : "-translate-y-3 opacity-0"

@@ -63,18 +63,25 @@ export function Hero() {
       <div ref={mediaRef} className="absolute inset-0 will-change-transform">
         <ParallaxMedia
           src={IMG.hero}
-          alt="An Airborne athlete arched mid-movement in a misty teal-lit studio, poised and powerful"
+          alt="Airborne athletes mid-flow on aerial silks in a bright, airy studio, poised and powerful"
           className="absolute inset-0"
           sizes="100vw"
           priority
           overlay="cinematic"
           intensity={9}
+          // #4 aerial plate carries the studio wall logo near frame-center,
+          // right under the overlaid headline. Nudge the plate down (with a
+          // slight zoom so no top edge shows) so the logo drops below the copy
+          // and the headline sits on the blank upper wall.
+          imgClassName="scale-[1.15] translate-y-[10%]"
         />
       </div>
-      {/* extra left-weighted scrim for text legibility */}
+      {/* extra left-weighted scrim for text legibility — the bright #4 plate
+          carries the studio wall logo near center, so the tint runs darker and
+          reaches further right to seat the headline/subtitle on solid ink. */}
       <div
         aria-hidden
-        className="absolute inset-0 bg-[linear-gradient(90deg,rgba(4,20,20,0.72)_0%,rgba(4,20,20,0.25)_45%,transparent_75%)]"
+        className="absolute inset-0 bg-[linear-gradient(90deg,rgba(4,20,20,0.9)_0%,rgba(4,20,20,0.78)_30%,rgba(4,20,20,0.45)_60%,transparent_88%)]"
       />
       {/* scroll-driven darken layer */}
       <div

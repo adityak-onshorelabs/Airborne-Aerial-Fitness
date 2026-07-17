@@ -19,6 +19,12 @@ const REMOTE = {
     "https://ik.imagekit.io/adityakamarouthu/Onshorelabs/Airborne/imgi_5_functional-training-BavPHi1S.png?updatedAt=1784050504756",
   dance:
     "https://ik.imagekit.io/adityakamarouthu/Onshorelabs/Airborne/imgi_4_dance-fitness-Cj_A_O1r.png?updatedAt=1784050504111",
+  trampoline:
+    "https://ik.imagekit.io/adityakamarouthu/Onshorelabs/Airborne/imgi_8_trampoline-fitness-CT8Uz5vj.png?updatedAt=1784050504698",
+  yoga:
+    "https://ik.imagekit.io/adityakamarouthu/Onshorelabs/Airborne/imgi_9_yoga-C4dUkEuB.png?updatedAt=1784050504679",
+  aerialSilkHoop:
+    "https://ik.imagekit.io/adityakamarouthu/Onshorelabs/Airborne/imgi_3_aerial-silk-hoop-Bo37EdO_.png?updatedAt=1784050504677",
   app1: "https://ik.imagekit.io/adityakamarouthu/Onshorelabs/Airborne/IMG_3969.PNG",
   app2: "https://ik.imagekit.io/adityakamarouthu/Onshorelabs/Airborne/IMG_3970.PNG",
   app3: "https://ik.imagekit.io/adityakamarouthu/Onshorelabs/Airborne/IMG_3971.PNG",
@@ -26,14 +32,26 @@ const REMOTE = {
     "https://ik.imagekit.io/adityakamarouthu/Onshorelabs/Airborne/mockups/Shot-2.png",
 } as const;
 
+// Branded, on-brand wide (16:9, ~2752x1536) studio plates generated for
+// Airborne — carry the studio wall logo. Used for horizontal / full-bleed
+// slots. Portrait discipline shots live in REMOTE.* above.
+const GEN = {
+  aerialBright: `${IK}/Gemini_Generated_Image_9lybb9lybb9lybb9.png`,
+  aerialDark: `${IK}/Gemini_Generated_Image_i77cd7i77cd7i77c.png`,
+  functional: `${IK}/Gemini_Generated_Image_11y38q11y38q11y3.png`,
+  pilates: `${IK}/Gemini_Generated_Image_yrc595yrc595yrc5.png`,
+  yoga: `${IK}/Gemini_Generated_Image_qb80qxqb80qxqb80.png`,
+} as const;
+
 export const IMG = {
-  hero: `${IK}/maria-budanova-pristavskaya-4Pk6EQ7H4VI-unsplash.jpg`,
+  hero: GEN.aerialBright,
   brand: REMOTE.aerial,
-  aerialSignature: `${IK}/aerial-signature.jpg`,
-  aerialDetail: `${IK}/aerial-detail.jpg`,
+  // Wide banner slots (PageHero, SignatureAerial plate) → landscape GEN plates.
+  aerialSignature: GEN.aerialDark,
+  aerialDetail: GEN.aerialBright,
   adults: `${IK}/adults.jpg`,
   kids: `${IK}/kids.jpg`,
-  facilities: `${IK}/facilities.jpg`,
+  facilities: GEN.functional,
   studioLowerParel: `${IK}/studio-lowerparel.jpg`,
   studioMazgaon: `${IK}/studio-mazgaon.jpg`,
   appShotA: REMOTE.app1,
@@ -41,8 +59,8 @@ export const IMG = {
   appShotC: REMOTE.app3,
   // Pre-rendered 3-phone device mockup (real frames, transparent bg).
   appMockup: REMOTE.appMockup,
-  finalCta: `${IK}/final-cta.jpg`,
-  strength: `${IK}/strength.jpg`,
+  finalCta: GEN.yoga,
+  strength: GEN.functional,
   // Vertical triptych for the "How it works" session flow.
   sessionShots: [
     `${IK}/vertical-1.jpg`,
@@ -50,12 +68,12 @@ export const IMG = {
     `${IK}/vertical-4.jpg`,
   ],
   formats: {
-    silkHoop: `${IK}/format-silk-hoop.jpg`,
+    silkHoop: REMOTE.aerialSilkHoop,
     pilates: REMOTE.pilates,
     functional: REMOTE.functional,
     dance: REMOTE.dance,
-    trampoline: `${IK}/format-trampoline.jpg`,
-    yoga: `${IK}/format-yoga.jpg`,
+    trampoline: REMOTE.trampoline,
+    yoga: REMOTE.yoga,
     kidsAerial: `${IK}/format-kids-aerial.jpg`,
   },
   community: [

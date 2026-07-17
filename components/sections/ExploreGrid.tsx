@@ -50,9 +50,6 @@ export function ExploreGrid() {
       <Shell>
         <Reveal>
           <Eyebrow>Explore the studio</Eyebrow>
-          <h2 className="headline mt-6 max-w-[18ch] text-display-lg text-ink">
-            One studio, many ways to move.
-          </h2>
         </Reveal>
 
         <div className="mt-14 grid auto-rows-[15rem] gap-5 sm:auto-rows-[17rem] md:grid-cols-3 lg:gap-6">

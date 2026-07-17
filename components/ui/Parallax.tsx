@@ -18,6 +18,7 @@ export function ParallaxMedia({
   priority = false,
   overlay = "cinematic",
   intensity = 12,
+  imgClassName = "",
 }: {
   src: string;
   alt: string;
@@ -26,6 +27,8 @@ export function ParallaxMedia({
   priority?: boolean;
   overlay?: "none" | "cinematic" | "teal";
   intensity?: number;
+  /** Extra classes on the <Image> itself, e.g. zoom/anchor to reframe the crop. */
+  imgClassName?: string;
 }) {
   // Higher intensity → more lag → lower speed. Clamped so it never inverts.
   const speed = Math.max(0.7, 1 - intensity / 100);
@@ -46,7 +49,7 @@ export function ParallaxMedia({
           fill
           sizes={sizes}
           priority={priority}
-          className="object-cover"
+          className={`object-cover ${imgClassName}`}
         />
       </div>
       {overlay !== "none" && (

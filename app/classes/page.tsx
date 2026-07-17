@@ -2,13 +2,30 @@ import type { Metadata } from "next";
 import {
   EditorialHero,
   EditorialSection,
+  IndexKicker,
   Plate,
 } from "@/components/editorial/kit";
 import { FinalCta } from "@/components/sections/FinalCta";
+import { MembershipPlans } from "@/components/classes/MembershipPlans";
+import { CurrentOffers } from "@/components/classes/CurrentOffers";
+import { ClassCalendar } from "@/components/classes/ClassCalendar";
 import { KeyLabel } from "@/components/ui/primitives";
 import { Reveal } from "@/components/ui/Reveal";
 import { formats, classesFlow, IMG } from "@/lib/content";
 import { siteConfig } from "@/lib/site-config";
+import { getPlans, getSchedule, getClassTypes } from "@/lib/zuno";
+
+// Discipline imagery for each membership category (names match the Zuno API).
+const CATEGORY_IMG: Record<string, string> = {
+  "Aerial Fitness": IMG.brand,
+  "Aerial Silk & Hoop": IMG.formats.silkHoop,
+  "Mat Pilates": IMG.formats.pilates,
+  "Functional Training": IMG.formats.functional,
+  "Dance Fitness": IMG.formats.dance,
+  "Trampoline Fitness": IMG.formats.trampoline,
+  Yoga: IMG.formats.yoga,
+  "Kids Aerial Fitness": IMG.formats.kidsAerial,
+};
 
 export const metadata: Metadata = {
   title: "Classes — Pilates, Functional, Dance, Yoga & Aerial",
@@ -17,7 +34,13 @@ export const metadata: Metadata = {
   alternates: { canonical: "/classes" },
 };
 
-export default function ClassesPage() {
+export default async function ClassesPage() {
+  const [plans, schedule, classTypes] = await Promise.all([
+    getPlans(),
+    getSchedule(),
+    getClassTypes(),
+  ]);
+
   return (
     <>
       <EditorialHero
@@ -36,9 +59,56 @@ export default function ClassesPage() {
         caption="Dance Fitness · Airborne"
       />
 
-      {/* Formats — numbered index with thumbnails */}
+      {/* Membership plans — pricing per discipline, booking routes to the app */}
       <EditorialSection
         index="03"
+        label="Membership"
+        title="Plans for every rhythm"
+        lede="Drop in for a trial or commit to a season. Sessions are booked and paid in the Airborne app."
+        tone="surface"
+      >
+        <MembershipPlans
+          plans={plans}
+          images={CATEGORY_IMG}
+          classTypes={classTypes}
+          downloadUrl={siteConfig.app.downloadUrl}
+        />
+      </EditorialSection>
+
+      {/* Current offers — mirrors the app's active promotions, redeem in-app */}
+      <EditorialSection
+        index="04"
+        label="Current Offers"
+        title="Ways to save"
+        lede="Live membership offers, applied automatically when you check out in the app."
+      >
+        <CurrentOffers downloadUrl={siteConfig.app.downloadUrl} />
+      </EditorialSection>
+
+      {/* Weekly schedule — full-width calendar (custom, wider than the split grid) */}
+      <section className="bg-canvas">
+        <div className="mx-auto w-full max-w-shell px-5 sm:px-8 lg:px-12">
+          <div className="border-t border-ink/12 py-16 sm:py-20 lg:py-24">
+            <Reveal>
+              <IndexKicker index="05">Weekly Schedule</IndexKicker>
+              <h2 className="headline mt-6 max-w-[22ch] text-display-md text-ink">
+                Find your class
+              </h2>
+              <p className="mt-5 max-w-prose leading-relaxed text-muted">
+                The full week across both studios. Filter by location and
+                discipline, then reserve your spot in the app.
+              </p>
+            </Reveal>
+            <div className="mt-10 lg:mt-12">
+              <ClassCalendar slots={schedule} />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Formats — numbered index with thumbnails */}
+      <EditorialSection
+        index="06"
         label="Formats"
         title="The full range"
         lede="Seven disciplines, one standard. Every session lives in the app."
@@ -72,7 +142,7 @@ export default function ClassesPage() {
 
       {/* How it works — 3 steps */}
       <EditorialSection
-        index="04"
+        index="07"
         label="How it works"
         title={classesFlow.title}
         lede={classesFlow.body}
@@ -98,7 +168,7 @@ export default function ClassesPage() {
       </EditorialSection>
 
       {/* Levels */}
-      <EditorialSection index="05" label="Levels" title={classesFlow.levels.title}>
+      <EditorialSection index="08" label="Levels" title={classesFlow.levels.title}>
         <div className="grid gap-x-12">
           {classesFlow.levels.items.map((lvl, i) => (
             <Reveal key={lvl.k}>

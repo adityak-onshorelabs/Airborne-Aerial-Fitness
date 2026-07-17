@@ -3,7 +3,6 @@ import Link from "next/link";
 import {
   EditorialHero,
   EditorialSection,
-  Plate,
 } from "@/components/editorial/kit";
 import { FinalCta } from "@/components/sections/FinalCta";
 import { KeyLabel } from "@/components/ui/primitives";
@@ -23,6 +22,53 @@ const studios = [
   { ...siteConfig.locations.lowerParel, img: IMG.studioLowerParel },
   { ...siteConfig.locations.mazgaon, img: IMG.studioMazgaon },
 ];
+
+/**
+ * Framed map preview in place of a studio photo. Keyless Google Maps embed
+ * (query by address), rendered non-interactive (pointer-events-none) so it
+ * reads as a still preview — the "Get directions" link below is the action.
+ * A cream/monochrome CSS filter drops the map into the site's paper palette.
+ */
+function MapPreview({
+  address,
+  name,
+  caption,
+}: {
+  address: string;
+  name: string;
+  caption: string;
+}) {
+  const src = `https://maps.google.com/maps?q=${encodeURIComponent(
+    address,
+  )}&z=15&output=embed`;
+  return (
+    <figure>
+      <div className="relative aspect-[3/2] overflow-hidden bg-surface ring-1 ring-inset ring-ink/15">
+        <iframe
+          src={src}
+          title={`Map of Airborne ${name}, Mumbai`}
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+          className="pointer-events-none absolute inset-0 h-full w-full border-0 [filter:grayscale(1)_contrast(1.08)_brightness(1.05)]"
+        />
+        {/* teal duotone: color-blend keeps the B&W detail, recolors to primary */}
+        <span
+          aria-hidden
+          className="pointer-events-none absolute inset-0 bg-teal mix-blend-color opacity-70"
+        />
+        {/* lift shadows so the teal reads clean, not muddy */}
+        <span
+          aria-hidden
+          className="pointer-events-none absolute inset-0 bg-canvas mix-blend-screen opacity-20"
+        />
+      </div>
+      <figcaption className="mt-3 flex items-center gap-3 border-t border-ink/12 pt-3 font-sans text-[0.68rem] uppercase tracking-[0.22em] text-ink/45">
+        <span aria-hidden className="h-px w-5 bg-teal" />
+        {caption}
+      </figcaption>
+    </figure>
+  );
+}
 
 export default function StudiosPage() {
   return (
@@ -54,12 +100,10 @@ export default function StudiosPage() {
           {studios.map((s, i) => (
             <Reveal key={s.name}>
               <article>
-                <Plate
-                  src={s.img}
-                  alt={`Airborne ${s.name} studio in Mumbai`}
-                  ratio="aspect-[3/2]"
+                <MapPreview
+                  address={s.address}
+                  name={s.name}
                   caption={`0${i + 1} · ${s.name}`}
-                  sizes="(max-width: 640px) 100vw, 40vw"
                 />
                 <h3 className="mt-6 font-display text-3xl text-ink">{s.name}</h3>
                 <p className="mt-3 max-w-md text-[0.95rem] leading-relaxed text-muted">
