@@ -37,6 +37,11 @@ const REMOTE = {
 // slots. Portrait discipline shots live in REMOTE.* above.
 const GEN = {
   aerialBright: `${IK}/Gemini_Generated_Image_9lybb9lybb9lybb9.png`,
+  // Branded aerial silk & hoop plate — used for every silk/hoop mention.
+  aerialSilkHoopBrand: `${IK}/Gemini_Generated_Image_9lybb9lybb9lybb9.png?updatedAt=1784282332892`,
+  // Vertical (4:5) branded plates for the /aerial apparatus cards.
+  aerialSilkVertical: `${IK}/Gemini_Generated_Image_89b82289b82289b8.png`,
+  aerialHoopVertical: `${IK}/Gemini_Generated_Image_fhvp3nfhvp3nfhvp.png`,
   aerialDark: `${IK}/Gemini_Generated_Image_i77cd7i77cd7i77c.png`,
   functional: `${IK}/Gemini_Generated_Image_11y38q11y38q11y3.png`,
   pilates: `${IK}/Gemini_Generated_Image_yrc595yrc595yrc5.png`,
@@ -49,6 +54,8 @@ export const IMG = {
   // Wide banner slots (PageHero, SignatureAerial plate) → landscape GEN plates.
   aerialSignature: GEN.aerialDark,
   aerialDetail: GEN.aerialBright,
+  // Dedicated silk & hoop image for any aerial silk/hoop mention.
+  aerialSilkHoop: GEN.aerialSilkHoopBrand,
   adults: `${IK}/adults.jpg`,
   kids: `${IK}/kids.jpg`,
   facilities: GEN.functional,
@@ -68,7 +75,7 @@ export const IMG = {
     `${IK}/vertical-4.jpg`,
   ],
   formats: {
-    silkHoop: REMOTE.aerialSilkHoop,
+    silkHoop: GEN.aerialSilkHoopBrand,
     pilates: REMOTE.pilates,
     functional: REMOTE.functional,
     dance: REMOTE.dance,
@@ -152,12 +159,14 @@ export const aerialPage = {
       {
         name: "Aerial Silk",
         line: "Two lengths of fabric become wraps, climbs, and dramatic drops. Silk builds grip strength, body awareness, and the confidence to trust your own line.",
-        img: IMG.aerialSignature,
+        img: GEN.aerialSilkVertical,
+        focal: "object-top",
       },
       {
         name: "Aerial Hoop",
         line: "A steel ring suspended in the air. Hoop rewards control and shapes, teaching you to hold, balance, and flow through poses with precision and grace.",
-        img: IMG.aerialDetail,
+        img: GEN.aerialHoopVertical,
+        focal: "object-center",
       },
     ],
   },

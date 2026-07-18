@@ -53,6 +53,7 @@ export default function AerialPage() {
                   ratio="aspect-[4/5]"
                   caption={d.name}
                   sizes="(max-width: 640px) 100vw, 40vw"
+                  imgClassName={d.focal}
                 />
                 <h3 className="mt-6 font-display text-2xl text-ink">{d.name}</h3>
                 <p className="mt-3 leading-relaxed text-muted">{d.line}</p>

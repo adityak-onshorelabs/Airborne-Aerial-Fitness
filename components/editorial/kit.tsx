@@ -47,6 +47,7 @@ export function Plate({
   caption,
   priority = false,
   sizes = "(max-width: 1024px) 100vw, 45vw",
+  imgClassName,
 }: {
   src: string;
   alt: string;
@@ -54,6 +55,8 @@ export function Plate({
   caption?: string;
   priority?: boolean;
   sizes?: string;
+  /** Extra <img> classes, e.g. object-position focal control. */
+  imgClassName?: string;
 }) {
   return (
     <figure>
@@ -66,7 +69,7 @@ export function Plate({
           fill
           sizes={sizes}
           priority={priority}
-          className="object-cover"
+          className={`object-cover ${imgClassName ?? ""}`}
         />
       </div>
       {caption && (
