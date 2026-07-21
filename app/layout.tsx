@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Archivo, Montserrat } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import { siteConfig } from "@/lib/site-config";
 import { SiteHeader, SiteFooter } from "@/components/layout/SiteChrome";
 import { ScrollReset } from "@/components/layout/ScrollReset";
@@ -132,7 +133,6 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        {/* Analytics slot — drop your snippet here (brief §13). No tracker wired. */}
       </head>
       <body>
         <a
@@ -151,6 +151,8 @@ export default function RootLayout({
           <main id="main">{children}</main>
           <SiteFooter />
         </SmoothScrollProvider>
+        {/* Vercel Web Analytics — page views + custom events (brief §13). */}
+        <Analytics />
       </body>
     </html>
   );
